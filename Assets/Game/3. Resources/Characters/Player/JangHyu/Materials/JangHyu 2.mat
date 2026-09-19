@@ -221,8 +221,8 @@ Material:
     - _MAIN_LIGHT_SHADOWS: 1
     - _MAIN_LIGHT_SHADOWS_CASCADE: 1
     - _MainLightIntesity: 1.89
-    - _MainLightMidPoint: -0.672
-    - _MainLightSmoothness: 0.063
+    - _MainLightMidPoint: 0.77
+    - _MainLightSmoothness: 0.19
     - _MainLightSpecular: 0
     - _MainShadowsPower: 0.5
     - _Metallic: 0

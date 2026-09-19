@@ -150,7 +150,7 @@ Material:
     - _AdditionalLightsEnabled: 1
     - _AdditionalLightsFaloff: 1
     - _AdditionalLightsIntesity: 1
-    - _AdditionalLightsMidPoint: 0.921
+    - _AdditionalLightsMidPoint: 0.89
     - _AdditionalLightsSmoothnessMultiplier: 1.634
     - _AdditionalLightsSmothness: 0.967
     - _AdditionalLightsSpecular: 0
@@ -221,8 +221,8 @@ Material:
     - _MAIN_LIGHT_SHADOWS: 1
     - _MAIN_LIGHT_SHADOWS_CASCADE: 1
     - _MainLightIntesity: 1.89
-    - _MainLightMidPoint: -0.672
-    - _MainLightSmoothness: 0.063
+    - _MainLightMidPoint: 0.83
+    - _MainLightSmoothness: 0.13
     - _MainLightSpecular: 0
     - _MainShadowsPower: 0.5
     - _Metallic: 0

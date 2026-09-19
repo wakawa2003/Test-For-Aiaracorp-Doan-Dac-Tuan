@@ -1,0 +1,12 @@
+﻿<Solution>
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Assembly-CSharp-firstpass.csproj" />
+  <Project Path="Assembly-CSharp-Editor-firstpass.csproj" />
+  <Project Path="AmplifyShaderEditor.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="IngameDebugConsole.Runtime.csproj" />
+  <Project Path="Sirenix.OdinInspector.Modules.UnityMathematics.csproj" />
+  <Project Path="Sirenix.OdinInspector.Modules.UnityLocalization.csproj" />
+  <Project Path="IngameDebugConsole.Editor.csproj" />
+  <Project Path="Sirenix.OdinInspector.Modules.UnityLocalization.Editor.csproj" />
+</Solution>
