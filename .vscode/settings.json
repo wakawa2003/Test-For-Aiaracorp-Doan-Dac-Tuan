@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "Template-Tuan.slnx"
+    "dotnet.defaultSolution": "Test-For-Aiaracorp-Doan-Dac-Tuan.slnx"
 }
