@@ -1501,8 +1501,8 @@ MonoBehaviour:
     spawnType: 1
     entryDuration: 0
     ignoreWallDuringEntry: 0
-    airDropHeight: 0
-    airDropDiveSpeed: 0
+    airDropHeight: 10
+    airDropDiveSpeed: 50
     offScreenMargin: 0
   preplacedEnemies: []
   wakePreplacedOnSpawn: 0
@@ -1966,54 +1966,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226054336}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &228927140
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 228927142}
-  - component: {fileID: 228927141}
-  m_Layer: 0
-  m_Name: FeedBack Register
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &228927141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228927140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943da2613b94d69409348d760d3321b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Aiara.FeedbackRegistrar
-  _entries:
-  - Key: Enemy_Landing
-    Player: {fileID: 2080744002}
---- !u!4 &228927142
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228927140}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.11036, y: 0.24, z: -3.28998}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2080744003}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &243586949
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,195 +2347,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.7746668, y: 1, z: 1}
   m_Center: {x: -0.8873334, y: 0, z: 0}
---- !u!1 &296070582
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 296070583}
-  - component: {fileID: 296070586}
-  - component: {fileID: 296070585}
-  - component: {fileID: 296070584}
-  - component: {fileID: 296070587}
-  m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &296070583
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296070582}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1945608571}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &296070584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296070582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_AllowHDROutput: 1
-  m_UseScreenCoordOverride: 0
-  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
-  m_Version: 2
---- !u!81 &296070585
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296070582}
-  m_Enabled: 1
---- !u!20 &296070586
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296070582}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.23018861, g: 0.23018861, b: 0.23018861, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 43
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!114 &296070587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296070582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 547ab53f5c5bd8f47958e648c03ed7e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.FeedbacksForThirdParty.MMCameraZoom
-  ChannelMode: 0
-  Channel: 0
-  MMChannelDefinition: {fileID: 0}
-  ZoomTween:
-    MMTweenDefinitionType: 1
-    MMTweenCurve: 4
-    Curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    Initialized: 0
-    ConditionPropertyName: 
-    EnumConditionPropertyName: 
-    EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
-  TestMode: 0
-  TestFieldOfView: 30
-  TestTransitionDuration: 0.1
-  TestDuration: 0.05
-  TestZoomButton: 0
 --- !u!1 &322224232
 GameObject:
   m_ObjectHideFlags: 0
@@ -6764,7 +6527,6 @@ GameObject:
   m_Component:
   - component: {fileID: 880571791}
   - component: {fileID: 880571792}
-  - component: {fileID: 880571793}
   m_Layer: 0
   m_Name: Camera Rig
   m_TagString: Untagged
@@ -6781,7 +6543,7 @@ Transform:
   m_GameObject: {fileID: 880571790}
   serializedVersion: 2
   m_LocalRotation: {x: 0.097730614, y: -0, z: -0, w: 0.9952129}
-  m_LocalPosition: {x: -0.03, y: 2.7, z: -10.83}
+  m_LocalPosition: {x: -0.03, y: 2.7, z: -12.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6809,56 +6571,6 @@ MonoBehaviour:
   springArmNode: {fileID: 598110691}
   shakeNode: {fileID: 1582062264}
   lensNode: {fileID: 1518211863}
---- !u!114 &880571793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 880571790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab44f762f05f9344fada9dc8d29d743c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.CombatCameraController
-  rig: {fileID: 880571792}
-  playerWeight: 3
-  mainTargetWeight: 2
-  otherEnemyWeight: 1
-  weightTransitionDuration: 0.027
-  engagedOnly: 1
-  otherEnemyInfluenceDistance: 12
-  filterHysteresis: 1.15
-  defaultPlayerRadius: 0.5
-  defaultEnemyRadius: 0.5
-  mainTargetHoldTime: 1
-  mainTargetTimeout: 6
-  fallbackToAggressiveRole: 1
-  hitCountsAsEngaged: 1
-  useFramingDistance: 1
-  framingPadding: 1.5
-  minCombatDistance: 0
-  maxCombatDistance: 12
-  useVerticalFraming: 1
-  verticalFramingPadding: 1.2
-  frameFromWeightedCenter: 1
-  useMainTargetZoom: 1
-  zoomInStartDistance: 3
-  zoomInFullDistance: 1.2
-  zoomInDistanceScale: 0.532
-  zoomBlendSmoothTime: 0.08
-  combatFollowOffset: {x: 0, y: 0, z: 0}
-  focusWeightMultiplier: 2
-  focusWeightTransitionDuration: 0.033
-  focusHoldDuration: 1
-  maxFocusChaseDistance: 8
-  focusStuckDistance: 25
-  debugMainTarget: {fileID: 0}
-  debugActiveEnemyCount: 0
-  debugRegisteredEnemyCount: 0
-  debugFramingDistance: 0
-  debugFocusActive: 0
-  debugZoomBlend: 0
 --- !u!1 &885691411
 GameObject:
   m_ObjectHideFlags: 0
@@ -8422,6 +8134,143 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104369784}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1122300625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1122300628}
+  - component: {fileID: 1122300627}
+  - component: {fileID: 1122300626}
+  - component: {fileID: 1122300629}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1122300626
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122300625}
+  m_Enabled: 1
+--- !u!20 &1122300627
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122300625}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.23018861, g: 0.23018861, b: 0.23018861, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1122300628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122300625}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5400004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518211862}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1122300629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122300625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &1146329791
 GameObject:
   m_ObjectHideFlags: 0
@@ -9068,7 +8917,6 @@ GameObject:
   - component: {fileID: 1200068782}
   - component: {fileID: 1200068784}
   - component: {fileID: 1200068783}
-  - component: {fileID: 1200068785}
   m_Layer: 6
   m_Name: Main Character
   m_TagString: Untagged
@@ -9328,21 +9176,6 @@ MonoBehaviour:
   handCannonSpinBurstTrigger: SpinAttackBurst
   handCannonMaxHoldDuration: 2
   handCannonChargeSlowScale: 0.9
---- !u!114 &1200068785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200068779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073a98a8df657cd42b54a32237c3ea47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.CameraFocusTarget
-  weightMultiplier: 1
-  radius: 0.5
-  customTargetTransform: {fileID: 1200068780}
 --- !u!1 &1207354551
 GameObject:
   m_ObjectHideFlags: 0
@@ -11284,7 +11117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1945608571}
+  - {fileID: 1122300628}
   m_Father: {fileID: 1582062263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1518211863
@@ -11299,8 +11132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5febebcaa2eaa047bd495bba8169eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.LensCameraNode
-  targetCamera: {fileID: 296070586}
-  baseFov: 50
+  targetCamera: {fileID: 1122300627}
+  baseFov: 55
 --- !u!1 &1523713983
 GameObject:
   m_ObjectHideFlags: 0
@@ -14791,385 +14624,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944254442}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1945608570
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1945608571}
-  - component: {fileID: 1945608573}
-  - component: {fileID: 1945608572}
-  m_Layer: 0
-  m_Name: CameraShaker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1945608571
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1945608570}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 296070583}
-  m_Father: {fileID: 1518211862}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1945608572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1945608570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf8e915527fa424a8b17dc168fe20eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.Feedbacks.MMCameraShaker
-  ChannelMode: 0
-  Channel: 0
-  MMChannelDefinition: {fileID: 0}
-  CooldownBetweenShakes: 0
---- !u!114 &1945608573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1945608570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 347013242dca7c44fb5001793033ea59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.Feedbacks.MMWiggle
-  UpdateMode: 0
-  PositionActive: 1
-  RotationActive: 0
-  ScaleActive: 0
-  PositionWiggleProperties:
-    WigglePermitted: 0
-    WiggleType: 3
-    UseUnscaledTime: 0
-    TimeMultiplier: 1
-    StartWigglingAutomatically: 1
-    SmoothPingPong: 1
-    UseSpeedCurve: 0
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    FrequencyMin: 0
-    FrequencyMax: 1
-    AmplitudeMin: {x: 0, y: 0, z: 0}
-    AmplitudeMax: {x: 1, y: 1, z: 1}
-    RelativeAmplitude: 1
-    UniformValues: 0
-    ForceVectorLength: 0
-    ForcedVectorLength: 1
-    Curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    RemapCurveZeroMin: {x: 0, y: 0, z: 0}
-    RemapCurveZeroMax: {x: 0, y: 0, z: 0}
-    RemapCurveOneMin: {x: 1, y: 1, z: 1}
-    RemapCurveOneMax: {x: 1, y: 1, z: 1}
-    RelativeCurveAmplitude: 1
-    CurvePingPong: 0
-    PauseMin: 0
-    PauseMax: 0
-    LimitedTime: 0
-    LimitedTimeTotal: 0
-    LimitedTimeFalloff:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: -1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: -1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    LimitedTimeResetValue: 1
-    LimitedTimeLeft: 0
-    NoiseFrequencyMin: {x: 0, y: 0, z: 0}
-    NoiseFrequencyMax: {x: 1, y: 1, z: 1}
-    NoiseShiftMin: {x: 0, y: 0, z: 0}
-    NoiseShiftMax: {x: 0, y: 0, z: 0}
-  RotationWiggleProperties:
-    WigglePermitted: 1
-    WiggleType: 1
-    UseUnscaledTime: 0
-    TimeMultiplier: 1
-    StartWigglingAutomatically: 1
-    SmoothPingPong: 1
-    UseSpeedCurve: 0
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    FrequencyMin: 0
-    FrequencyMax: 1
-    AmplitudeMin: {x: 0, y: 0, z: 0}
-    AmplitudeMax: {x: 1, y: 1, z: 1}
-    RelativeAmplitude: 1
-    UniformValues: 0
-    ForceVectorLength: 0
-    ForcedVectorLength: 1
-    Curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    RemapCurveZeroMin: {x: 0, y: 0, z: 0}
-    RemapCurveZeroMax: {x: 0, y: 0, z: 0}
-    RemapCurveOneMin: {x: 1, y: 1, z: 1}
-    RemapCurveOneMax: {x: 1, y: 1, z: 1}
-    RelativeCurveAmplitude: 1
-    CurvePingPong: 0
-    PauseMin: 0
-    PauseMax: 0
-    LimitedTime: 0
-    LimitedTimeTotal: 0
-    LimitedTimeFalloff:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: -1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: -1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    LimitedTimeResetValue: 1
-    LimitedTimeLeft: 0
-    NoiseFrequencyMin: {x: 0, y: 0, z: 0}
-    NoiseFrequencyMax: {x: 1, y: 1, z: 1}
-    NoiseShiftMin: {x: 0, y: 0, z: 0}
-    NoiseShiftMax: {x: 0, y: 0, z: 0}
-  ScaleWiggleProperties:
-    WigglePermitted: 1
-    WiggleType: 1
-    UseUnscaledTime: 0
-    TimeMultiplier: 1
-    StartWigglingAutomatically: 1
-    SmoothPingPong: 1
-    UseSpeedCurve: 0
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    FrequencyMin: 0
-    FrequencyMax: 1
-    AmplitudeMin: {x: 0, y: 0, z: 0}
-    AmplitudeMax: {x: 1, y: 1, z: 1}
-    RelativeAmplitude: 1
-    UniformValues: 0
-    ForceVectorLength: 0
-    ForcedVectorLength: 1
-    Curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    RemapCurveZeroMin: {x: 0, y: 0, z: 0}
-    RemapCurveZeroMax: {x: 0, y: 0, z: 0}
-    RemapCurveOneMin: {x: 1, y: 1, z: 1}
-    RemapCurveOneMax: {x: 1, y: 1, z: 1}
-    RelativeCurveAmplitude: 1
-    CurvePingPong: 0
-    PauseMin: 0
-    PauseMax: 0
-    LimitedTime: 0
-    LimitedTimeTotal: 0
-    LimitedTimeFalloff:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: -1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: -1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    LimitedTimeResetValue: 1
-    LimitedTimeLeft: 0
-    NoiseFrequencyMin: {x: 0, y: 0, z: 0}
-    NoiseFrequencyMax: {x: 1, y: 1, z: 1}
-    NoiseShiftMin: {x: 0, y: 0, z: 0}
-    NoiseShiftMax: {x: 0, y: 0, z: 0}
-  DebugWiggleDuration: 2
 --- !u!1 &1946909684
 GameObject:
   m_ObjectHideFlags: 0
@@ -15612,10 +15066,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba3aee695757234a918b0a64425c089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.FollowCameraNode
-  followOffset: {x: 0, y: 0.75, z: 1}
-  followSmoothTime: 0.158
+  followOffset: {x: 0, y: 1.2, z: 0}
+  followSmoothTime: 0.25
   maxFollowSpeed: 60
-  flipOffsetZWithFacing: 0
+  flipOffsetZWithFacing: 1
 --- !u!1 &2011993280
 GameObject:
   m_ObjectHideFlags: 0
@@ -15921,7 +15375,8 @@ MonoBehaviour:
   defensivePokeInterval: 1.2
   engagementRange: 12
   registeredCount: 0
-  characters: []
+  characters:
+  - {fileID: 0}
 --- !u!4 &2058070385
 Transform:
   m_ObjectHideFlags: 0
@@ -16229,433 +15684,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077328906}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2080744000
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2080744003}
-  - component: {fileID: 2080744002}
-  m_Layer: 0
-  m_Name: Enemy_FeedBack_Landing
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2080744002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080744000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.Feedbacks.MMF_Player
-  Feedbacks: []
-  InitializationMode: 0
-  AutoInitialization: 1
-  SafeMode: 3
-  Direction: 1
-  AutoChangeDirectionOnEnd: 0
-  AutoPlayOnStart: 0
-  AutoPlayOnEnable: 0
-  ForceTimescaleMode: 0
-  ForcedTimescaleMode: 1
-  DurationMultiplier: 1
-  TimescaleMultiplier: 1
-  RandomizeDuration: 0
-  RandomDurationMultiplier: {x: 0.5, y: 1.5}
-  DisplayFullDurationDetails: 0
-  PlayerTimescaleMode: 1
-  OnlyPlayIfWithinRange: 0
-  RangeCenter: {fileID: 0}
-  RangeDistance: 5
-  UseRangeFalloff: 0
-  RangeFalloff:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  RemapRangeFalloff: {x: 0, y: 1}
-  IgnoreRangeEvents: 0
-  CooldownDuration: 0
-  InitialDelay: 0.1
-  CanPlay: 1
-  CanPlayWhileAlreadyPlaying: 1
-  ChanceToPlay: 100
-  FeedbacksIntensity: 3.6
-  Events:
-    TriggerMMFeedbacksEvents: 0
-    TriggerUnityEvents: 1
-    OnPlay:
-      m_PersistentCalls:
-        m_Calls: []
-    OnPause:
-      m_PersistentCalls:
-        m_Calls: []
-    OnStop:
-      m_PersistentCalls:
-        m_Calls: []
-    OnResume:
-      m_PersistentCalls:
-        m_Calls: []
-    OnChangeDirection:
-      m_PersistentCalls:
-        m_Calls: []
-    OnComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    OnRestoreInitialValues:
-      m_PersistentCalls:
-        m_Calls: []
-    OnSkipToTheEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInitializationComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    OnEnable:
-      m_PersistentCalls:
-        m_Calls: []
-    OnDisable:
-      m_PersistentCalls:
-        m_Calls: []
-  DebugActive: 0
-  InScriptDrivenPause: 0
-  FeedbacksList:
-  - rid: 7649058774056436099
-  - rid: 7649058774056436100
-  - rid: 7649058774056436101
-  KeepPlayModeChanges: 1
-  PerformanceMode: 0
-  RestoreInitialValuesOnDisable: 0
-  StopFeedbacksOnDisable: 0
-  PlayCount: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: 7649058774056436099
-      type: {class: MMF_CameraShake, ns: MoreMountains.Feedbacks, asm: Assembly-CSharp}
-      data:
-        Active: 1
-        UniqueID: -1682893433
-        Label: Landing
-        OriginalLabel: Camera Shake
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          PlayCount: 1
-          LimitPlayCount: 0
-          MaxPlayCount: 3
-          SetPlayCountToZeroOnReset: 0
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        AutomaticShakerSetupButton:
-          ButtonText: Automatic Shaker Setup
-        Owner: {fileID: 2080744002}
-        DebugActive: 0
-        RepeatUntilStopped: 0
-        CameraShakeProperties:
-          Duration: 0.3
-          Amplitude: 1
-          Frequency: 10
-          AmplitudeX: 0
-          AmplitudeY: 0
-          AmplitudeZ: 0
-    - rid: 7649058774056436100
-      type: {class: MMF_SetActive, ns: MoreMountains.Feedbacks, asm: Assembly-CSharp}
-      data:
-        Active: 1
-        UniqueID: -2055512999
-        Label: Set Active
-        OriginalLabel: Set Active
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          PlayCount: 1
-          LimitPlayCount: 0
-          MaxPlayCount: 3
-          SetPlayCountToZeroOnReset: 0
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        AutomaticShakerSetupButton:
-          ButtonText: 
-        Owner: {fileID: 2080744002}
-        DebugActive: 0
-        TargetGameObject: {fileID: 0}
-        ExtraTargetGameObjects: []
-        IgnorePlayDirection: 0
-        SetStateOnInit: 0
-        StateOnInit: 1
-        SetStateOnPlay: 0
-        StateOnPlay: 1
-        SetStateOnStop: 0
-        StateOnStop: 1
-        SetStateOnReset: 0
-        StateOnReset: 1
-        SetStateOnSkip: 0
-        StateOnSkip: 1
-        SetStateOnPlayerComplete: 0
-        StateOnPlayerComplete: 1
-    - rid: 7649058774056436101
-      type: {class: MMF_CameraZoom, ns: MoreMountains.Feedbacks, asm: Assembly-CSharp}
-      data:
-        Active: 1
-        UniqueID: 280187277
-        Label: Camera Zoom
-        OriginalLabel: Camera Zoom
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          PlayCount: 1
-          LimitPlayCount: 0
-          MaxPlayCount: 3
-          SetPlayCountToZeroOnReset: 0
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        AutomaticShakerSetupButton:
-          ButtonText: Automatic Shaker Setup
-        Owner: {fileID: 2080744002}
-        DebugActive: 0
-        ZoomMode: 0
-        ZoomFieldOfView: 20
-        ZoomTransitionDuration: 0.05
-        ZoomDuration: 1
-        RelativeFieldOfView: 0
-        ZoomTween:
-          MMTweenDefinitionType: 1
-          MMTweenCurve: 0
-          Curve:
-            serializedVersion: 2
-            m_Curve:
-            - serializedVersion: 3
-              time: 0
-              value: 0
-              inSlope: 0
-              outSlope: 0
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
-            - serializedVersion: 3
-              time: 1
-              value: 1
-              inSlope: 0
-              outSlope: 0
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-          Initialized: 0
-          ConditionPropertyName: 
-          EnumConditionPropertyName: 
-          EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
---- !u!4 &2080744003
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080744000}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.56035995, y: 1.27, z: -4.84002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 228927142}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2082993004
 GameObject:
   m_ObjectHideFlags: 0
@@ -17808,13 +16836,12 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1335663610}
-  - {fileID: 681768087}
-  - {fileID: 2058070385}
-  - {fileID: 285986094}
   - {fileID: 488860632}
   - {fileID: 1207354553}
   - {fileID: 1523713984}
   - {fileID: 880571791}
   - {fileID: 1200068780}
   - {fileID: 1310774382}
-  - {fileID: 228927142}
+  - {fileID: 681768087}
+  - {fileID: 2058070385}
+  - {fileID: 285986094}
