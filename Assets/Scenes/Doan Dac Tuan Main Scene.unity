@@ -299,6 +299,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6127306}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &15263119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 15263120}
+  m_Layer: 6
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &15263120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15263119}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2113283254}
+  - {fileID: 526079988}
+  m_Father: {fileID: 1607783415}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &15785846
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,7 +699,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e9d1523f57b72f4aad3590e8a00f5b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 496248988}
   m_SourcePrefab: {fileID: 100100000, guid: 4e9d1523f57b72f4aad3590e8a00f5b5, type: 3}
 --- !u!4 &66548894 stripped
 Transform:
@@ -839,6 +875,37 @@ Transform:
   - {fileID: 217901837}
   - {fileID: 1665804595}
   m_Father: {fileID: 1523713984}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &86277304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86277305}
+  m_Layer: 6
+  m_Name: BoxCollider (Is Trigger)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86277305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86277304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1485035353}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &88512275
 GameObject:
@@ -2169,6 +2236,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260369722}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &265321442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 265321443}
+  m_Layer: 6
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &265321443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265321442}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 831761598}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &285986093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,6 +3138,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447558894}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &452328340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 452328341}
+  m_Layer: 6
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &452328341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452328340}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1607783415}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &456611432
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,6 +3566,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490881870}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &496248986 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e9d1523f57b72f4aad3590e8a00f5b5, type: 3}
+  m_PrefabInstance: {fileID: 66548893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &496248988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496248986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf83935350b0d94b80b909c251cfa21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.AttackAnimationEventReceiver
+  verboseLogging: 0
 --- !u!1 &520626022
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,6 +3614,91 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 285986094}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &525872783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 525872784}
+  - component: {fileID: 525872785}
+  m_Layer: 6
+  m_Name: NormalCombo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &525872784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525872783}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 831761598}
+  - {fileID: 1607783415}
+  - {fileID: 1158410640}
+  m_Father: {fileID: 2011993281}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &525872785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525872783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50dba92ddec2fed4ea0db1eec19b7f49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.ComboGroup
+  groupName: 
+  starterAttack: {fileID: 831761599}
+  starterEnabled: 1
+  starterInput: 0
+  starterState: 0
+  starterDirection: 0
+  starterPriority: 0
+--- !u!1 &526079987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 526079988}
+  m_Layer: 6
+  m_Name: BoxCollider (Is Trigger)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &526079988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526079987}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 15263120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &535892191
 GameObject:
@@ -5637,6 +5869,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784030024}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &785020217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 785020218}
+  m_Layer: 6
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &785020218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785020217}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1158410640}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &787917438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5817,6 +6080,263 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825320567}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &829258985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 829258986}
+  - component: {fileID: 829258988}
+  - component: {fileID: 829258987}
+  m_Layer: 6
+  m_Name: AttackHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &829258986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829258985}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.04, y: 1.25, z: -0.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2134093715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &829258987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829258985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397b359d5fc811a48822ab2bed7adfc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.AttackHitbox
+  hitCollider: {fileID: 829258988}
+  drawGizmo: 1
+--- !u!65 &829258988
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829258985}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0125476, y: 1, z: 3.6884542}
+  m_Center: {x: 0.006273806, y: 0, z: 1.3442271}
+--- !u!1 &831761597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 831761598}
+  - component: {fileID: 831761599}
+  m_Layer: 6
+  m_Name: Attack_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &831761598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831761597}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 265321443}
+  - {fileID: 1485035353}
+  m_Father: {fileID: 525872784}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &831761599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831761597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8549942dbeaf94f8591746b0df39fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.AttackAction
+  attackName: 
+  animationStateName: NormalAttack1
+  crossFadeDuration: 0.05
+  attackStage: 1
+  minDuration: 0.15
+  maxDuration: 1.2
+  moveCancelDelay: 0
+  damageMultiplier: 1.2
+  canCritical: 1
+  criticalMultiplier: 1.5
+  forceCritical: 0
+  fpCost: 0
+  superArmor: 0
+  unblockable: 0
+  lockFacing: 1
+  hitDownedTargets: 0
+  unblockableMarkName: AttackMark
+  hitReaction:
+    Kind: 0
+    HorizontalForce: 0
+    PushDuration: 0.25
+    VerticalForce: 8
+    AirTime: 0.5
+    EnableBounce: 0
+    BouncePower: 8
+    BounceDecay: 3
+  bodyCollision: 0
+  bodyCollisionDamageMultiplier: 0.5
+  bodyCollisionRadius: 0.8
+  transitions:
+  - input: 0
+    requireHit: 0
+    ground: 0
+    direction: 0
+    nextAttack: {fileID: 1607783416}
+  mainStateTag: NormalAttack
+  comboWindowTag: NormalAttackTransition
+  isAirComboLauncher: 0
+  attackerLiftForce: 0
+  attackerLiftOnlyVsAirborne: 1
+  diveFall: 0
+  diveFallSpeed: 15
+  diveHoverDuration: 0
+  nextComboAttackName: 
+  nextComboRequiresHit: 0
+  animationSpeedMultiplier: 1
+  speedSegments:
+    segments: []
+  forwardMoveSpeed: 0
+  forwardMoveStart: 0
+  forwardMoveDuration: 0
+  forwardMoveEventName: 
+  useMagnetism: 0
+  magnetRange: 4
+  magnetDepthRange: 3
+  magnetStopDistance: 1.2
+  magnetDuration: 0.12
+  showHitEffect: 1
+  hitboxFeedbackKey: 
+  hitboxFeedbackOffset: {x: 0, y: 0, z: 0}
+  useSlowMotion: 0
+  slowMotionOnHitOnly: 1
+  slowMotionDelay: 0
+  slowMotionScale: 0.3
+  slowMotionDuration: 0.15
+  slowMotionEaseIn: 0.02
+  slowMotionEaseOut: 0.2
+  useCameraShake: 0
+  cameraShakeOnHitOnly: 1
+  cameraShakeDelay: 0
+  cameraShakeVelocity: {x: 0.3, y: 0.3, z: 0.3}
+  cameraShakeDuration: 0.2
+  cameraShakeFrequency: 25
+  useCameraZoom: 0
+  cameraZoomOnHitOnly: 1
+  cameraZoomDelay: 0
+  cameraZoomFovDelta: -2
+  cameraZoomEaseIn: 0.1
+  cameraZoomHold: 0.1
+  cameraZoomEaseOut: 0.1
+  useRumble: 0
+  rumbleOnHitOnly: 1
+  rumbleDelay: 0
+  rumbleLowFrequency: 0.5
+  rumbleHighFrequency: 0.5
+  rumbleDuration: 0.15
+  usePowerCharge: 0
+  chargeFreezeTime: 0.15
+  chargeMinHoldTime: 0.35
+  chargeMaxHoldTime: 1
+  chargeDamageMultiplier: 2
+  chargeTimeScale: 0.5
+  chargeHoldAnimSpeed: 0.1
+  chargeEffectScaleMultiplier: 1.5
+  chargeReleaseAnimSpeed: 2.5
+  chargeReleaseBoostDuration: 0.3
+  chargeFreezeEaseTime: 0.18
+  chargeReleaseEaseTime: 0.12
+  chargeCameraZoom: 1
+  chargeCameraZoomFovDelta: -6
+  chargeCameraZoomEaseIn: 0.18
+  chargeCameraZoomEaseOut: 0.15
+  hitbox: {fileID: 2113283255}
+  visual: {fileID: 0}
+  attackVisuals:
+  - target: {fileID: 0}
+    startDelay: 0.02
+    animationEventName: 
+    triggerHitbox: 1
+    hitboxOverride: {fileID: 2113283255}
+    hitboxDelay: 0
+    hitboxDuration: 0.15
+    hitboxOffEventName: 
+    hitReaction: 1
+    overrideReaction: 0
+    reaction:
+      Kind: 0
+      HorizontalForce: 0
+      PushDuration: 0.25
+      VerticalForce: 8
+      AirTime: 0.5
+      EnableBounce: 0
+      BouncePower: 8
+      BounceDecay: 3
+    chargedColorOverride: 0
+    chargedStartColor: {r: 0.35, g: 0.65, b: 1, a: 1}
+    persistEffect: 0
+    persistDuration: 3
+    impactFreeze: 0
+    impactFreezeChargedOnly: 1
+    impactFreezeDuration: 0.12
+    impactFreezeScale: 0
+    impactZoom: 0
+    impactZoomChargedOnly: 1
+    impactZoomFovDelta: -4
+    impactZoomEaseIn: 0.05
+    impactZoomHold: 0.1
+    impactZoomEaseOut: 0.2
+  hitboxStartDelay: 0.02
+  hitboxOnEventName: 
+  hitboxOffEventName: 
+  hitboxActiveDuration: 0.15
+  _hitboxMigratedToVisuals: 1
 --- !u!1 &851537226
 GameObject:
   m_ObjectHideFlags: 0
@@ -7931,6 +8451,190 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158031852}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1158410639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1158410640}
+  - component: {fileID: 1158410641}
+  m_Layer: 6
+  m_Name: Attack_1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1158410640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158410639}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 785020218}
+  - {fileID: 2134093715}
+  m_Father: {fileID: 525872784}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1158410641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158410639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8549942dbeaf94f8591746b0df39fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.AttackAction
+  attackName: 
+  animationStateName: NormalAttack4
+  crossFadeDuration: 0.05
+  attackStage: 1
+  minDuration: 0.15
+  maxDuration: 1.2
+  moveCancelDelay: 0
+  damageMultiplier: 1.2
+  canCritical: 1
+  criticalMultiplier: 1.5
+  forceCritical: 0
+  fpCost: 0
+  superArmor: 0
+  unblockable: 0
+  lockFacing: 1
+  hitDownedTargets: 0
+  unblockableMarkName: AttackMark
+  hitReaction:
+    Kind: 1
+    HorizontalForce: 0.42
+    PushDuration: 0.25
+    VerticalForce: 8
+    AirTime: 0.5
+    EnableBounce: 0
+    BouncePower: 8
+    BounceDecay: 3
+  bodyCollision: 0
+  bodyCollisionDamageMultiplier: 0.5
+  bodyCollisionRadius: 0.8
+  transitions: []
+  mainStateTag: NormalAttack4
+  comboWindowTag: NormalAttackTransition
+  isAirComboLauncher: 0
+  attackerLiftForce: 0
+  attackerLiftOnlyVsAirborne: 1
+  diveFall: 0
+  diveFallSpeed: 15
+  diveHoverDuration: 0
+  nextComboAttackName: 
+  nextComboRequiresHit: 0
+  animationSpeedMultiplier: 1
+  speedSegments:
+    segments: []
+  forwardMoveSpeed: 0
+  forwardMoveStart: 0
+  forwardMoveDuration: 0
+  forwardMoveEventName: 
+  useMagnetism: 0
+  magnetRange: 4
+  magnetDepthRange: 3
+  magnetStopDistance: 1.2
+  magnetDuration: 0.12
+  showHitEffect: 1
+  hitboxFeedbackKey: 
+  hitboxFeedbackOffset: {x: 0, y: 0, z: 0}
+  useSlowMotion: 0
+  slowMotionOnHitOnly: 1
+  slowMotionDelay: 0
+  slowMotionScale: 0.3
+  slowMotionDuration: 0.15
+  slowMotionEaseIn: 0.02
+  slowMotionEaseOut: 0.2
+  useCameraShake: 0
+  cameraShakeOnHitOnly: 1
+  cameraShakeDelay: 0
+  cameraShakeVelocity: {x: 0.3, y: 0.3, z: 0.3}
+  cameraShakeDuration: 0.2
+  cameraShakeFrequency: 25
+  useCameraZoom: 0
+  cameraZoomOnHitOnly: 1
+  cameraZoomDelay: 0
+  cameraZoomFovDelta: -2
+  cameraZoomEaseIn: 0.1
+  cameraZoomHold: 0.1
+  cameraZoomEaseOut: 0.1
+  useRumble: 0
+  rumbleOnHitOnly: 1
+  rumbleDelay: 0
+  rumbleLowFrequency: 0.5
+  rumbleHighFrequency: 0.5
+  rumbleDuration: 0.15
+  usePowerCharge: 0
+  chargeFreezeTime: 0.15
+  chargeMinHoldTime: 0.35
+  chargeMaxHoldTime: 1
+  chargeDamageMultiplier: 2
+  chargeTimeScale: 0.5
+  chargeHoldAnimSpeed: 0.1
+  chargeEffectScaleMultiplier: 1.5
+  chargeReleaseAnimSpeed: 2.5
+  chargeReleaseBoostDuration: 0.3
+  chargeFreezeEaseTime: 0.18
+  chargeReleaseEaseTime: 0.12
+  chargeCameraZoom: 1
+  chargeCameraZoomFovDelta: -6
+  chargeCameraZoomEaseIn: 0.18
+  chargeCameraZoomEaseOut: 0.15
+  hitbox: {fileID: 829258987}
+  visual: {fileID: 0}
+  attackVisuals:
+  - target: {fileID: 0}
+    startDelay: 0.02
+    animationEventName: 
+    triggerHitbox: 1
+    hitboxOverride: {fileID: 829258987}
+    hitboxDelay: 1
+    hitboxDuration: 0.15
+    hitboxOffEventName: 
+    hitReaction: 1
+    overrideReaction: 0
+    reaction:
+      Kind: 0
+      HorizontalForce: 0
+      PushDuration: 0.25
+      VerticalForce: 8
+      AirTime: 0.5
+      EnableBounce: 0
+      BouncePower: 8
+      BounceDecay: 3
+    chargedColorOverride: 0
+    chargedStartColor: {r: 0.35, g: 0.65, b: 1, a: 1}
+    persistEffect: 0
+    persistDuration: 3
+    impactFreeze: 0
+    impactFreezeChargedOnly: 1
+    impactFreezeDuration: 0.12
+    impactFreezeScale: 0
+    impactZoom: 1
+    impactZoomChargedOnly: 1
+    impactZoomFovDelta: -4
+    impactZoomEaseIn: 0.05
+    impactZoomHold: 0.1
+    impactZoomEaseOut: 0.2
+  hitboxStartDelay: 0.02
+  hitboxOnEventName: 
+  hitboxOffEventName: 
+  hitboxActiveDuration: 0.15
+  _hitboxMigratedToVisuals: 1
 --- !u!1 &1162892252
 GameObject:
   m_ObjectHideFlags: 0
@@ -8300,7 +9004,7 @@ MonoBehaviour:
     splineReference: {fileID: 0}
     moveSpeed: 6
     instantGroundMovement: 1
-    depthMoveMultiplier: 0
+    depthMoveMultiplier: 0.75
     rotationSpeed: 12
     facingThreshold: 0.2
     visualRoot: {fileID: 0}
@@ -8329,7 +9033,8 @@ MonoBehaviour:
     cancelMoveFeedbackKey: CancelMove
   combat:
     attacks: []
-    comboGroups: []
+    comboGroups:
+    - {fileID: 525872785}
     comboDropDelay: 0.3
     airComboArmDuration: 1.5
     battleMode: 1
@@ -9480,6 +10185,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1523713984}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1333038020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1333038021}
+  m_Layer: 6
+  m_Name: BoxCollider (Is Trigger)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1333038021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333038020}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2134093715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1335663608
 GameObject:
   m_ObjectHideFlags: 0
@@ -10159,6 +10895,108 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461229302}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1485035352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1485035353}
+  m_Layer: 6
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1485035353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485035352}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1567144598}
+  - {fileID: 86277305}
+  m_Father: {fileID: 831761598}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1500334181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1500334182}
+  - component: {fileID: 1500334184}
+  - component: {fileID: 1500334183}
+  m_Layer: 6
+  m_Name: Hurt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1500334182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500334181}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8532954550461706823}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1500334183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500334181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9ffbd8d5b26d2499c6221aaa72ccfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.Hurtbox
+  receiverBehaviour: {fileID: 1200068784}
+--- !u!136 &1500334184
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500334181}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1512032448
 GameObject:
   m_ObjectHideFlags: 0
@@ -10744,6 +11582,74 @@ MonoBehaviour:
   yawOffset: 0
   rotationSmoothTime: 0.3
   defaultViewDirection: {x: 0, y: 0, z: 1}
+--- !u!1 &1567144597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1567144598}
+  - component: {fileID: 1567144600}
+  - component: {fileID: 1567144599}
+  m_Layer: 6
+  m_Name: AttackHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1567144598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567144597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.04, y: 1.25, z: -0.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1485035353}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1567144599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567144597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397b359d5fc811a48822ab2bed7adfc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.AttackHitbox
+  hitCollider: {fileID: 1567144600}
+  drawGizmo: 1
+--- !u!65 &1567144600
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567144597}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0125476, y: 1, z: 3.6884542}
+  m_Center: {x: 0.006273806, y: 0, z: 1.3442271}
 --- !u!1 &1582062262
 GameObject:
   m_ObjectHideFlags: 0
@@ -11059,6 +11965,195 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604914632}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1607783414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1607783415}
+  - component: {fileID: 1607783416}
+  m_Layer: 6
+  m_Name: Attack_1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1607783415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607783414}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 452328341}
+  - {fileID: 15263120}
+  m_Father: {fileID: 525872784}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1607783416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607783414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8549942dbeaf94f8591746b0df39fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.AttackAction
+  attackName: 
+  animationStateName: HeavyAttack1
+  crossFadeDuration: 0.05
+  attackStage: 1
+  minDuration: 0.15
+  maxDuration: 1.2
+  moveCancelDelay: 0
+  damageMultiplier: 1.2
+  canCritical: 1
+  criticalMultiplier: 1.5
+  forceCritical: 0
+  fpCost: 0
+  superArmor: 0
+  unblockable: 0
+  lockFacing: 1
+  hitDownedTargets: 0
+  unblockableMarkName: AttackMark
+  hitReaction:
+    Kind: 1
+    HorizontalForce: 0.42
+    PushDuration: 0.25
+    VerticalForce: 8
+    AirTime: 0.5
+    EnableBounce: 0
+    BouncePower: 8
+    BounceDecay: 3
+  bodyCollision: 0
+  bodyCollisionDamageMultiplier: 0.5
+  bodyCollisionRadius: 0.8
+  transitions:
+  - input: 0
+    requireHit: 0
+    ground: 0
+    direction: 0
+    nextAttack: {fileID: 1158410641}
+  mainStateTag: NormalAttack4
+  comboWindowTag: NormalAttackTransition
+  isAirComboLauncher: 0
+  attackerLiftForce: 0
+  attackerLiftOnlyVsAirborne: 1
+  diveFall: 0
+  diveFallSpeed: 15
+  diveHoverDuration: 0
+  nextComboAttackName: 
+  nextComboRequiresHit: 0
+  animationSpeedMultiplier: 1
+  speedSegments:
+    segments: []
+  forwardMoveSpeed: 0
+  forwardMoveStart: 0
+  forwardMoveDuration: 0
+  forwardMoveEventName: 
+  useMagnetism: 0
+  magnetRange: 4
+  magnetDepthRange: 3
+  magnetStopDistance: 1.2
+  magnetDuration: 0.12
+  showHitEffect: 1
+  hitboxFeedbackKey: 
+  hitboxFeedbackOffset: {x: 0, y: 0, z: 0}
+  useSlowMotion: 0
+  slowMotionOnHitOnly: 1
+  slowMotionDelay: 0
+  slowMotionScale: 0.3
+  slowMotionDuration: 0.15
+  slowMotionEaseIn: 0.02
+  slowMotionEaseOut: 0.2
+  useCameraShake: 0
+  cameraShakeOnHitOnly: 1
+  cameraShakeDelay: 0
+  cameraShakeVelocity: {x: 0.3, y: 0.3, z: 0.3}
+  cameraShakeDuration: 0.2
+  cameraShakeFrequency: 25
+  useCameraZoom: 0
+  cameraZoomOnHitOnly: 1
+  cameraZoomDelay: 0
+  cameraZoomFovDelta: -2
+  cameraZoomEaseIn: 0.1
+  cameraZoomHold: 0.1
+  cameraZoomEaseOut: 0.1
+  useRumble: 0
+  rumbleOnHitOnly: 1
+  rumbleDelay: 0
+  rumbleLowFrequency: 0.5
+  rumbleHighFrequency: 0.5
+  rumbleDuration: 0.15
+  usePowerCharge: 0
+  chargeFreezeTime: 0.15
+  chargeMinHoldTime: 0.35
+  chargeMaxHoldTime: 1
+  chargeDamageMultiplier: 2
+  chargeTimeScale: 0.5
+  chargeHoldAnimSpeed: 0.1
+  chargeEffectScaleMultiplier: 1.5
+  chargeReleaseAnimSpeed: 2.5
+  chargeReleaseBoostDuration: 0.3
+  chargeFreezeEaseTime: 0.18
+  chargeReleaseEaseTime: 0.12
+  chargeCameraZoom: 1
+  chargeCameraZoomFovDelta: -6
+  chargeCameraZoomEaseIn: 0.18
+  chargeCameraZoomEaseOut: 0.15
+  hitbox: {fileID: 2113283255}
+  visual: {fileID: 0}
+  attackVisuals:
+  - target: {fileID: 0}
+    startDelay: 0.02
+    animationEventName: 
+    triggerHitbox: 1
+    hitboxOverride: {fileID: 2113283255}
+    hitboxDelay: 1
+    hitboxDuration: 0.15
+    hitboxOffEventName: 
+    hitReaction: 1
+    overrideReaction: 0
+    reaction:
+      Kind: 0
+      HorizontalForce: 0
+      PushDuration: 0.25
+      VerticalForce: 8
+      AirTime: 0.5
+      EnableBounce: 0
+      BouncePower: 8
+      BounceDecay: 3
+    chargedColorOverride: 0
+    chargedStartColor: {r: 0.35, g: 0.65, b: 1, a: 1}
+    persistEffect: 0
+    persistDuration: 3
+    impactFreeze: 0
+    impactFreezeChargedOnly: 1
+    impactFreezeDuration: 0.12
+    impactFreezeScale: 0
+    impactZoom: 1
+    impactZoomChargedOnly: 1
+    impactZoomFovDelta: -4
+    impactZoomEaseIn: 0.05
+    impactZoomHold: 0.1
+    impactZoomEaseOut: 0.2
+  hitboxStartDelay: 0.02
+  hitboxOnEventName: 
+  hitboxOffEventName: 
+  hitboxActiveDuration: 0.15
+  _hitboxMigratedToVisuals: 1
 --- !u!1 &1624610296
 GameObject:
   m_ObjectHideFlags: 0
@@ -13975,6 +15070,38 @@ MonoBehaviour:
   followSmoothTime: 0.25
   maxFollowSpeed: 60
   flipOffsetZWithFacing: 1
+--- !u!1 &2011993280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2011993281}
+  m_Layer: 6
+  m_Name: AttackRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2011993281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011993280}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 525872784}
+  m_Father: {fileID: 8532954550461706823}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2016570817
 GameObject:
   m_ObjectHideFlags: 0
@@ -14647,6 +15774,107 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082993004}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2113283253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2113283254}
+  - component: {fileID: 2113283256}
+  - component: {fileID: 2113283255}
+  m_Layer: 6
+  m_Name: AttackHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2113283254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113283253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.04, y: 1.25, z: -0.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 15263120}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2113283255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113283253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397b359d5fc811a48822ab2bed7adfc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.AttackHitbox
+  hitCollider: {fileID: 2113283256}
+  drawGizmo: 1
+--- !u!65 &2113283256
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113283253}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0125476, y: 1, z: 3.6884542}
+  m_Center: {x: 0.006273806, y: 0, z: 1.3442271}
+--- !u!1 &2134093714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2134093715}
+  m_Layer: 6
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2134093715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134093714}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 829258986}
+  - {fileID: 1333038021}
+  m_Father: {fileID: 1158410640}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2139712189
 GameObject:
   m_ObjectHideFlags: 0
@@ -15599,6 +16827,8 @@ Transform:
   m_Children:
   - {fileID: 1065475534255866546}
   - {fileID: 66548894}
+  - {fileID: 2011993281}
+  - {fileID: 1500334182}
   m_Father: {fileID: 1200068780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
