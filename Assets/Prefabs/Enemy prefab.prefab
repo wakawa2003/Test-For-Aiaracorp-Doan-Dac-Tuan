@@ -1,0 +1,659 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1627122793063518899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7736506614303937454}
+  m_Layer: 0
+  m_Name: Hurtbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7736506614303937454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627122793063518899}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3195852868825429542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1706869119898183588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6231075288908109364}
+  m_Layer: 0
+  m_Name: Collider/Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6231075288908109364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706869119898183588}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3195852868825429542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3396530172893598751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3195852868825429542}
+  - component: {fileID: 4678075058137833620}
+  - component: {fileID: 4308690550921853923}
+  m_Layer: 7
+  m_Name: Enemy prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3195852868825429542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3396530172893598751}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.55, y: 1.51, z: -8.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4201367064174865884}
+  - {fileID: 6829798810677918459}
+  - {fileID: 7736506614303937454}
+  - {fileID: 6231075288908109364}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &4678075058137833620
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3396530172893598751}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4308690550921853923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3396530172893598751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104d4067eb440bc49adef5261921b3c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.EnemyCharacter
+  faction: 2
+  ability: {fileID: 11400000, guid: a1d29d14ae44cea40abf4e5022151048, type: 2}
+  stateManager:
+    animator: {fileID: 0}
+    directionReference: {fileID: 0}
+    logStateChanges: 1
+    currentStateDisplay: 0
+    forwardRunHoldGrace: 0.05
+    locomotionRecoverFade: 0.1
+    walkStatePaths:
+    - BattleMovement.BattleWalk
+    - BattleMovement.PreBattleWalk
+    - NormalMovement.NormalWalk
+    walkStatePath: BattleMovement.BattleWalk
+    normalWalkStatePath: NormalMovement.NormalWalk
+    runStatePaths:
+    - DirectionalRunning.DirectionalRunningForward_Start
+    - DirectionalRunning.DirectionalRunningForward_Loop
+    runStartStatePath: DirectionalRunning.DirectionalRunningForward_Loop
+    runLoopStatePath: DirectionalRunning.DirectionalRunningForward_Loop
+    logLocomotionSync: 0
+    landingStatePath: Jump.JumpLanding
+    landingFade: 0.05
+  movement:
+    splineReference: {fileID: 0}
+    moveSpeed: 6
+    instantGroundMovement: 1
+    depthMoveMultiplier: 0
+    rotationSpeed: 12
+    facingThreshold: 0.2
+    visualRoot: {fileID: 0}
+    flipAxis: 2
+    facingRight: 1
+    gravity: -30
+    jumpHeight: 1.6
+    tangentSmoothSpeed: 10
+    dash:
+      dashDuration: 0.18
+      dashCooldown: 0.8
+      fallbackDashSpeed: 18
+      holdUntilAnimationEnds: 1
+      animationExitNormalizedTime: 0.95
+      maxAnimationHold: 0.6
+    enableSeparation: 1
+    separationRadiusScale: 1
+    separationPushSpeed: 5
+    separationYield: 0.5
+    enableMovementFeedback: 0
+    runStepInterval: 0.4
+    runFeedbackKey: Run
+    dashStartFeedbackKey: DashStart
+    dashEndFeedbackKey: DashEnd
+    landingFeedbackKey: Landing
+    cancelMoveFeedbackKey: CancelMove
+  combat:
+    attacks:
+    - {fileID: 6904094952273958979}
+    comboGroups: []
+    comboDropDelay: 0.3
+    airComboArmDuration: 1.5
+    battleMode: 1
+    fpRegenPercentPerSecond: 0.5
+    fpRegainOnAttackHit: 0
+    touhonChargeOnAttackHit: 2
+    touhonChargeOnKill: 0
+    touhonDrainOnHit: 2
+    touhonResetDelay: 10
+    touhonResetValue: 36
+    heojuSpeedMultiplier: 0.833
+    heojuDamageMultiplier: 0.833
+    heojuAttackSpeedMultiplier: 0.7
+    groggyOnTouhonDepleted: 0
+    executionRange: 3
+    executionApproachDuration: 0.7
+    executionDuration: 1
+    executionHealPercent: 0.05
+    hitFeedbackKey: Hit
+    deathFeedbackKey: Death
+    deathFeedbackDelay: 0
+    despawnOnDeathFeedback: 0
+    hitFeedbackCooldown: 0.1
+    hitVFXCameraOffset: 0.3
+    useLightHitBudget: 1
+    hitFeedbackKeyLight: HitLight
+    hitFeedbackKeyCritical: HitCritical
+    criticalHitstopEnable: 1
+    criticalHitstopScale: 0
+    criticalHitstopDuration: 0.08
+    criticalHitstopEaseIn: 0
+    criticalHitstopEaseOut: 0
+    bounceLandingFeedbackKey: Landing
+    bounceLandingBigCount: 1
+    bounceLandingSmallFeedbackKey: Landing_small
+    bounceLandingOffset: {x: 0, y: 0, z: 0}
+    currentHPView: 0
+    maxHPView: 0
+    debugHitReactions: 0
+  commandManager:
+    attackBufferSeconds: 0
+  defense:
+    canGuard: 1
+    guardDamageMultiplier: 0.2
+    guardAllDirections: 0
+    guardFrontDot: -0.1
+    allowMovementWhileGuarding: 0
+    guardMoveSpeedMultiplier: 0.5
+    playGuardStanceAnimation: 0
+    guardTouhonDrainPerBlock: 0
+    guardBreakOnGaugeEmpty: 1
+    guardKnockbackResistance: 0.5
+    guardKnockbackDuration: 0.2
+    guardKnockbackForce: 4
+    lockMovementForReactionAnim: 1
+    autoGuardChance: 0
+    guardFeedbackKey: Guard
+    guardBreakFeedbackKey: GuardBreak
+    guardFeedbackOffset: {x: 0, y: 1.5, z: 0}
+    guardCameraZoom: 1
+    guardZoomFovDelta: -3
+    guardZoomEaseIn: 0.04
+    guardZoomHold: 0.05
+    guardZoomEaseOut: 0.18
+    enableParry: 1
+    parryWindow: 0.3
+    perfectParryWindow: 0.12
+    parryCooldown: 0.5
+    parriedFrameStop: 0.1
+    perfectParriedFrameStop: 0.3
+    parryVulnerableDuration: 0.5
+    perfectParryVulnerableDuration: 1
+    parryTouhonCharge: 6
+    perfectParryTouhonCharge: 10
+    parryFeedbackKey: Parry
+    perfectParryFeedbackKey: PerfectParry
+    parryKnockbackForce: 3
+    parryKnockbackDuration: 0.12
+    enableCounterBuff: 1
+    counterBuffDuration: 2
+    counterBuffConsumeOnAttack: 1
+    counterBuffLostOnHit: 1
+  detectionRange: 8
+  loseTargetRange: 12
+  alertDuration: 0.6
+  attackRange: 1.8
+  attackCooldown: 1.5
+  attackActionName: 
+  targetSearchInterval: 0.5
+  guardDistance: 4
+  pressureDistance: 2.8
+  tooCloseDistance: 1.3
+  formationSpacing: 1.1
+  enableAiGuard: 1
+  guardReactDistance: 2.6
+  guardHoldDuration: 1
+  entryDuration: 2
+  ignoreWallDuringEntry: 1
+  entrySpeedMultiplier: 1.5
+  aiState: 0
+  target: {fileID: 0}
+  distanceToTarget: 3.4028235e+38
+  targetDetected: 0
+  canAttack: 0
+  combatRole: 0
+--- !u!1 &5950848322441833297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6829798810677918459}
+  m_Layer: 0
+  m_Name: AttackRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6829798810677918459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5950848322441833297}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3667659912244515207}
+  m_Father: {fileID: 3195852868825429542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6400027721786430403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4201367064174865884}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4201367064174865884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6400027721786430403}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9110101146728053351}
+  m_Father: {fileID: 3195852868825429542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7130858220058091433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3667659912244515207}
+  - component: {fileID: 6904094952273958979}
+  m_Layer: 0
+  m_Name: AttackActions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3667659912244515207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7130858220058091433}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6829798810677918459}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6904094952273958979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7130858220058091433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8549942dbeaf94f8591746b0df39fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.AttackAction
+  attackName: 
+  animationStateName: NormalAttack1
+  crossFadeDuration: 0.05
+  attackStage: 1
+  minDuration: 0.15
+  maxDuration: 1.2
+  moveCancelDelay: 0
+  damageMultiplier: 1.2
+  canCritical: 1
+  criticalMultiplier: 1.5
+  forceCritical: 0
+  fpCost: 0
+  superArmor: 0
+  unblockable: 0
+  lockFacing: 1
+  hitDownedTargets: 0
+  unblockableMarkName: AttackMark
+  hitReaction:
+    Kind: 0
+    HorizontalForce: 0
+    PushDuration: 0.25
+    VerticalForce: 8
+    AirTime: 0.5
+    EnableBounce: 0
+    BouncePower: 8
+    BounceDecay: 3
+  bodyCollision: 0
+  bodyCollisionDamageMultiplier: 0.5
+  bodyCollisionRadius: 0.8
+  transitions: []
+  mainStateTag: NormalAttack
+  comboWindowTag: NormalAttackTransition
+  isAirComboLauncher: 0
+  attackerLiftForce: 0
+  attackerLiftOnlyVsAirborne: 1
+  diveFall: 0
+  diveFallSpeed: 15
+  diveHoverDuration: 0
+  nextComboAttackName: 
+  nextComboRequiresHit: 0
+  animationSpeedMultiplier: 1
+  speedSegments:
+    segments: []
+  forwardMoveSpeed: 0
+  forwardMoveStart: 0
+  forwardMoveDuration: 0
+  forwardMoveEventName: 
+  useMagnetism: 0
+  magnetRange: 4
+  magnetDepthRange: 3
+  magnetStopDistance: 1.2
+  magnetDuration: 0.12
+  showHitEffect: 1
+  hitboxFeedbackKey: 
+  hitboxFeedbackOffset: {x: 0, y: 0, z: 0}
+  useSlowMotion: 0
+  slowMotionOnHitOnly: 1
+  slowMotionDelay: 0
+  slowMotionScale: 0.3
+  slowMotionDuration: 0.15
+  slowMotionEaseIn: 0.02
+  slowMotionEaseOut: 0.2
+  useCameraShake: 0
+  cameraShakeOnHitOnly: 1
+  cameraShakeDelay: 0
+  cameraShakeVelocity: {x: 0.3, y: 0.3, z: 0.3}
+  cameraShakeDuration: 0.2
+  cameraShakeFrequency: 25
+  useCameraZoom: 0
+  cameraZoomOnHitOnly: 1
+  cameraZoomDelay: 0
+  cameraZoomFovDelta: -2
+  cameraZoomEaseIn: 0.1
+  cameraZoomHold: 0.1
+  cameraZoomEaseOut: 0.1
+  useRumble: 0
+  rumbleOnHitOnly: 1
+  rumbleDelay: 0
+  rumbleLowFrequency: 0.5
+  rumbleHighFrequency: 0.5
+  rumbleDuration: 0.15
+  usePowerCharge: 0
+  chargeFreezeTime: 0.15
+  chargeMinHoldTime: 0.35
+  chargeMaxHoldTime: 1
+  chargeDamageMultiplier: 2
+  chargeTimeScale: 0.5
+  chargeHoldAnimSpeed: 0.1
+  chargeEffectScaleMultiplier: 1.5
+  chargeReleaseAnimSpeed: 2.5
+  chargeReleaseBoostDuration: 0.3
+  chargeFreezeEaseTime: 0.18
+  chargeReleaseEaseTime: 0.12
+  chargeCameraZoom: 1
+  chargeCameraZoomFovDelta: -6
+  chargeCameraZoomEaseIn: 0.18
+  chargeCameraZoomEaseOut: 0.15
+  hitbox: {fileID: 0}
+  visual: {fileID: 0}
+  attackVisuals:
+  - target: {fileID: 0}
+    startDelay: 0.02
+    animationEventName: 
+    triggerHitbox: 1
+    hitboxOverride: {fileID: 0}
+    hitboxDelay: 0
+    hitboxDuration: 0.15
+    hitboxOffEventName: 
+    hitReaction: 1
+    overrideReaction: 0
+    reaction:
+      Kind: 0
+      HorizontalForce: 0
+      PushDuration: 0.25
+      VerticalForce: 8
+      AirTime: 0.5
+      EnableBounce: 0
+      BouncePower: 8
+      BounceDecay: 3
+    chargedColorOverride: 0
+    chargedStartColor: {r: 0.35, g: 0.65, b: 1, a: 1}
+    persistEffect: 0
+    persistDuration: 3
+    impactFreeze: 0
+    impactFreezeChargedOnly: 1
+    impactFreezeDuration: 0.12
+    impactFreezeScale: 0
+    impactZoom: 0
+    impactZoomChargedOnly: 1
+    impactZoomFovDelta: -4
+    impactZoomEaseIn: 0.05
+    impactZoomHold: 0.1
+    impactZoomEaseOut: 0.2
+  hitboxStartDelay: 0.02
+  hitboxOnEventName: 
+  hitboxOffEventName: 
+  hitboxActiveDuration: 0.15
+  _hitboxMigratedToVisuals: 1
+--- !u!1001 &4256425571624102912
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4201367064174865884}
+    m_Modifications:
+    - target: {fileID: 3669089140094047020, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_Name
+      value: DeformationSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114815114158249097, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114815114158249097, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114815114158249097, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114815114158249097, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.07999992
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.010000229
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636141222878891229, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_Name
+      value: MonsterBall_red
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5636141222878891229, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5617213880783928361}
+  m_SourcePrefab: {fileID: 100100000, guid: 9af713c23a5acba498800338db003f36, type: 3}
+--- !u!1 &8441509409144365277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5636141222878891229, guid: 9af713c23a5acba498800338db003f36, type: 3}
+  m_PrefabInstance: {fileID: 4256425571624102912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5617213880783928361
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441509409144365277}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: cd5bca4f14374ef44962a5eb0f925eb5, type: 3}
+  m_Controller: {fileID: 22100000, guid: 9149cc6e860ce9a418421a9ec1b85e59, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &9110101146728053351 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
+  m_PrefabInstance: {fileID: 4256425571624102912}
+  m_PrefabAsset: {fileID: 0}
