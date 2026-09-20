@@ -191,7 +191,7 @@ namespace MoreMountains.Feedbacks
 		protected const string _mmfEditorClassName = "mmf-editor";
 		protected const string _settingsFoldoutSuffix = "- SettingsFoldout";
 		protected const string _settingsFoldoutSubClassName = "mm-settings-foldout-sub";
-		protected const string _settingsFoldoutSubToggleClassName = "mm-settings-foldout-sub-toggle"; 
+		protected const string _settingsFoldoutSubToggleClassName = "mm-settings-foldout-sub-toggle";
 		protected const string _settingsFoldoutToggleClassName = "mm-settings-foldout-toggle";
 		protected const string _settingsFoldoutClassName = "mm-settings-foldout";
 		protected const string _iconSettingsClassName = "mm-settings-icon";
@@ -424,14 +424,14 @@ namespace MoreMountains.Feedbacks
 			// draw the root
 			_root = new VisualElement();
 			_root.AddToClassList(_mmfEditorClassName);
-			_root.styleSheets.Add(StyleSheetBase);
-			_root.styleSheets.Add(StyleSheetFoldouts);
-			_root.styleSheets.Add(StyleSheetControls);
-			_root.styleSheets.Add(StyleSheetSettings);
-			_root.styleSheets.Add(StyleSheetFeedbacksList);
+			AddStyleSheetIfAssigned(StyleSheetBase);
+			AddStyleSheetIfAssigned(StyleSheetFoldouts);
+			AddStyleSheetIfAssigned(StyleSheetControls);
+			AddStyleSheetIfAssigned(StyleSheetSettings);
+			AddStyleSheetIfAssigned(StyleSheetFeedbacksList);
 			if (!EditorGUIUtility.isProSkin)
 			{
-				_root.styleSheets.Add(StyleSheetLightSkin);
+				AddStyleSheetIfAssigned(StyleSheetLightSkin);
 			}
 
 			// listen for changes on all properties in the MMF Player
@@ -447,6 +447,12 @@ namespace MoreMountains.Feedbacks
 			_initialized = true;
 		}
 
+		private void AddStyleSheetIfAssigned(StyleSheet styleSheet)
+		{
+			if (styleSheet != null)
+				_root.styleSheets.Add(styleSheet);
+		}
+
 		protected virtual void CacheFeedbacksListProperty()
 		{
 			_mmfeedbacksList = serializedObject.FindProperty(_feedbacksListPropertyName);
@@ -458,7 +464,7 @@ namespace MoreMountains.Feedbacks
 			{
 				_typeDisplays = new List<string>();
 			}
-			
+
 			if (_typeNamesDisplays == null)
 			{
 				_typeNamesDisplays = new List<string>();
@@ -471,9 +477,9 @@ namespace MoreMountains.Feedbacks
 
 			// Retrieve available feedbacks
 			List<System.Type> types = (from domainAssembly in System.AppDomain.CurrentDomain.GetAssemblies()
-				from assemblyType in domainAssembly.GetTypes()
-				where assemblyType.IsSubclassOf(typeof(MMF_Feedback))
-				select assemblyType).ToList();
+									   from assemblyType in domainAssembly.GetTypes()
+									   where assemblyType.IsSubclassOf(typeof(MMF_Feedback))
+									   select assemblyType).ToList();
 
 			// Create display list from types
 			_typeDisplays.Clear();
@@ -876,7 +882,7 @@ namespace MoreMountains.Feedbacks
 			_feedbacksListView.bindItem = (element, index) =>
 			{
 				Type feedbackType = TargetMmfPlayer.FeedbacksList[index].GetType();
-				
+
 				// to prevent double bindings during list reorders, we return if we've already bound this feedback
 				if (FeedbackHeaderContainersDictionary.ContainsKey(TargetMmfPlayer.FeedbacksList[index]))
 				{
@@ -890,7 +896,7 @@ namespace MoreMountains.Feedbacks
 				foldout.Clear();
 				foldout.value = TargetMmfPlayer.FeedbacksList[index].IsExpanded;
 				foldout.viewDataKey = TargetMmfPlayer.name + "-" + TargetMmfPlayer.FeedbacksList[index].UniqueID;
-				
+
 				// help box 
 				if (MMMenuHelp.HelpEnabled)
 				{
@@ -907,11 +913,11 @@ namespace MoreMountains.Feedbacks
 						foldout.Add(helpBox);
 					}
 				}
-				
+
 				// script edit button 
 				PropertyField scriptEditContainer = new PropertyField();
 				scriptEditContainer.AddToClassList(_feedbackEditScriptButtonContainerClassName);
-				Label scriptEditLabel = new Label(_scriptEditLabelText); 
+				Label scriptEditLabel = new Label(_scriptEditLabelText);
 				scriptEditLabel.AddToClassList(_feedbackEditScriptButtonLabelClassName);
 				scriptEditContainer.Add(scriptEditLabel);
 				VisualElement scriptEditButtonBox = new VisualElement();
@@ -922,10 +928,10 @@ namespace MoreMountains.Feedbacks
 				scriptIcon.style.backgroundImage = new StyleBackground(ScriptIcon);
 				scriptEditButtonBox.Add(scriptIcon);
 				Button scriptEditButton = new Button(() => EditScript(feedbackType));
-				scriptEditButton.text = feedbackType.Name; 
+				scriptEditButton.text = feedbackType.Name;
 				scriptEditButtonBox.Add(scriptEditButton);
 				VisualElement scriptEditSelectorIcon = new VisualElement();
-				scriptEditSelectorIcon.AddToClassList(_objectSelectorClassName); 
+				scriptEditSelectorIcon.AddToClassList(_objectSelectorClassName);
 				scriptEditButtonBox.Add(scriptEditSelectorIcon);
 				foldout.Add(scriptEditContainer);
 
@@ -1091,7 +1097,7 @@ namespace MoreMountains.Feedbacks
 			string[] guids = AssetDatabase.FindAssets(feedbackType.Name + " t:script");
 			if (guids.Length == 0)
 			{
-				Debug.LogError("Script not found for type: " + feedbackType.Name); 
+				Debug.LogError("Script not found for type: " + feedbackType.Name);
 				return;
 			}
 			foreach (string guid in guids)
@@ -1184,11 +1190,11 @@ namespace MoreMountains.Feedbacks
 							.DelayBetweenRepeats);
 
 					timingInfo += " + " + TargetMmfPlayer.FeedbacksList[index].Timing.NumberOfRepeats.ToString() +
-					              " x ";
-					
+								  " x ";
+
 					timingInfo += "(" + TargetMmfPlayer.FeedbacksList[index].FeedbackDuration.ToString() +
-					              "s + ";
-					
+								  "s + ";
+
 					timingInfo +=
 						TargetMmfPlayer.ApplyTimeMultiplier(TargetMmfPlayer.FeedbacksList[index].Timing
 							.DelayBetweenRepeats) + "s)";
@@ -1225,12 +1231,12 @@ namespace MoreMountains.Feedbacks
 		protected virtual StyleBackground DetermineFeedbackDirectionIcon(int index)
 		{
 			if ((TargetMmfPlayer.FeedbacksList[index].Timing.MMFeedbacksDirectionCondition ==
-			     MMFeedbackTiming.MMFeedbacksDirectionConditions.OnlyWhenForwards)
-			    || (TargetMmfPlayer.FeedbacksList[index].Timing.MMFeedbacksDirectionCondition ==
-			        MMFeedbackTiming.MMFeedbacksDirectionConditions.OnlyWhenBackwards))
+				 MMFeedbackTiming.MMFeedbacksDirectionConditions.OnlyWhenForwards)
+				|| (TargetMmfPlayer.FeedbacksList[index].Timing.MMFeedbacksDirectionCondition ==
+					MMFeedbackTiming.MMFeedbacksDirectionConditions.OnlyWhenBackwards))
 			{
 				return (TargetMmfPlayer.FeedbacksList[index].Timing.MMFeedbacksDirectionCondition ==
-				        MMFeedbackTiming.MMFeedbacksDirectionConditions.OnlyWhenBackwards)
+						MMFeedbackTiming.MMFeedbacksDirectionConditions.OnlyWhenBackwards)
 					? new StyleBackground(BottomToTopIcon)
 					: new StyleBackground(TopToBottomIcon);
 			}
@@ -1252,7 +1258,7 @@ namespace MoreMountains.Feedbacks
 				if (TargetMmfPlayer.FeedbacksList[index].OriginalLabel != "")
 				{
 					_feedbackLabel += " <color=" + _originalLabelColor + ">(" +
-					                  TargetMmfPlayer.FeedbacksList[index].OriginalLabel + ")</color>";
+									  TargetMmfPlayer.FeedbacksList[index].OriginalLabel + ")</color>";
 				}
 			}
 
@@ -1265,8 +1271,8 @@ namespace MoreMountains.Feedbacks
 				else
 				{
 					_feedbackLabel = _feedbackLabel + "[" +
-					                 (TargetMmfPlayer.FeedbacksList[index] as MMF_Looper).NumberOfLoopsLeft +
-					                 " loops left] ";
+									 (TargetMmfPlayer.FeedbacksList[index] as MMF_Looper).NumberOfLoopsLeft +
+									 " loops left] ";
 				}
 			}
 
@@ -1294,7 +1300,7 @@ namespace MoreMountains.Feedbacks
 			menu.AppendAction(_editScriptText, action => EditScript(feedbackType));
 		}
 
-		protected virtual void RedrawFeedbacksList() 
+		protected virtual void RedrawFeedbacksList()
 		{
 			if (serializedObject == null)
 			{
@@ -1304,7 +1310,7 @@ namespace MoreMountains.Feedbacks
 			ClearDictionaries();
 			DrawEmptyListState();
 			BindListViewToData();
-			DrawAutomaticShakerSetupButton(); 
+			DrawAutomaticShakerSetupButton();
 			_feedbacksListView.Rebuild();
 			UpdateFeedbacksListLabel();
 		}
@@ -1327,13 +1333,13 @@ namespace MoreMountains.Feedbacks
 		{
 			VisualElement bottomBarContents = new VisualElement();
 			bottomBarContents.style.flexDirection = FlexDirection.Column;
-			
+
 			// setup bar row and results row
 			VisualElement controlsRow = new VisualElement();
 			VisualElement searchResultsRow = new VisualElement();
 			controlsRow.style.flexDirection = FlexDirection.Row;
 			searchResultsRow.AddToClassList(_searchResultsRowClassName);
-			
+
 			// add new feedback popup
 			PopupField<string> addNewFeedbackPopupField =
 				new PopupField<string>(_addNewFeedbackPopupFieldLabel, _typeDisplays, 0);
@@ -1348,7 +1354,7 @@ namespace MoreMountains.Feedbacks
 					AddFeedback(newItem, addNewFeedbackPopupField);
 				}
 			});
-			
+
 			// Search Field
 			BuildSearchField(controlsRow, searchResultsRow);
 
@@ -1378,7 +1384,7 @@ namespace MoreMountains.Feedbacks
 
 			bottomBarContents.Add(controlsRow);
 			bottomBarContents.Add(searchResultsRow);
-			
+
 			return bottomBarContents;
 		}
 
@@ -1411,7 +1417,7 @@ namespace MoreMountains.Feedbacks
 			searchField.RegisterCallback<FocusOutEvent>(OnSearchFieldFocusOut);
 			searchField.RegisterValueChangedCallback<string>(OnSearchFieldValueChanged);
 			SetSearchFieldToPlaceholderMode();
-			
+
 			searchField.RegisterCallback<KeyDownEvent>(evt =>
 			{
 				if (evt.keyCode == KeyCode.UpArrow || evt.keyCode == KeyCode.DownArrow)
@@ -1420,14 +1426,14 @@ namespace MoreMountains.Feedbacks
 					Navigate(selectionIndex, evt.keyCode);
 				}
 			}, TrickleDown.TrickleDown);
-			
+
 			// clear button
 			Button clearSearchFieldButton = new Button(ClearSearchField);
 			clearSearchFieldButton.AddToClassList(_iconClassName);
 			clearSearchFieldButton.style.backgroundImage = new StyleBackground(SearchFieldCloseIcon);
 			clearSearchFieldButton.style.backgroundColor = _transparentColor;
 			searchField.Q("unity-text-input").Add(clearSearchFieldButton);
-			
+
 			void Navigate(int currentIndex, KeyCode directionKey)
 			{
 				if (directionKey == KeyCode.Escape)
@@ -1435,7 +1441,7 @@ namespace MoreMountains.Feedbacks
 					ClearSearchField();
 					return;
 				}
-				
+
 				if (directionKey != KeyCode.UpArrow && directionKey != KeyCode.DownArrow)
 				{
 					return;
@@ -1447,7 +1453,7 @@ namespace MoreMountains.Feedbacks
 				}
 
 				int direction = (directionKey == KeyCode.DownArrow) ? 1 : -1;
-				
+
 				int newIndex = currentIndex + direction;
 				if (newIndex < 0)
 				{
@@ -1485,7 +1491,7 @@ namespace MoreMountains.Feedbacks
 				{
 					buttonClicked = true;
 				}
-				
+
 				if (string.IsNullOrEmpty(searchField.value))
 				{
 					SetSearchFieldToPlaceholderMode();
@@ -1513,12 +1519,12 @@ namespace MoreMountains.Feedbacks
 				string searchedText = evt.newValue.ToLower();
 
 				resultsVisualElement.Clear();
-				
+
 				if (searchedText.Length == 0)
 				{
 					return;
 				}
-				
+
 				List<string> filteredFeedbackNames = new List<string>(_typeNamesDisplays);
 				filteredFeedbackNames.Clear();
 				filteredFeedbackNames.AddRange(_typeNamesDisplays.Where(option => option.ToLower().Contains(searchedText)));
@@ -1535,20 +1541,20 @@ namespace MoreMountains.Feedbacks
 				}
 			}
 		}
-		
+
 		protected virtual void AddFeedbackByName(string name, TextField searchField)
 		{
-			for (int i=0; i<_typeNamesDisplays.Count; i++)
+			for (int i = 0; i < _typeNamesDisplays.Count; i++)
 			{
 				if (_typeNamesDisplays[i] == name)
 				{
-					AddFeedback(i+1, null);
+					AddFeedback(i + 1, null);
 					searchField.Focus();
 					return;
 				}
 			}
 		}
-		
+
 		protected virtual void BindListViewToData()
 		{
 			_feedbacksListView.itemsSource = TargetMmfPlayer.FeedbacksList;
@@ -1589,7 +1595,7 @@ namespace MoreMountains.Feedbacks
 			Button skipButton = new Button(() => TargetMmfPlayer.SkipToTheEnd()) { text = _skipText };
 			Button restoreButton = new Button(() => TargetMmfPlayer.RestoreInitialValues()) { text = _restoreText };
 			Button changeDirectionButton = new Button(() => TargetMmfPlayer.ChangeDirection())
-				{ text = _changeDirectionText };
+			{ text = _changeDirectionText };
 
 			secondRow.Add(skipButton);
 			secondRow.Add(restoreButton);
