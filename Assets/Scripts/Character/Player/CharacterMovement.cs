@@ -97,7 +97,7 @@ namespace Yeolha.BeltScroll
         [SerializeField] private bool instantGroundMovement = true;
         private float acceleration = 20f;
         private float deceleration = 20f;
-        private float depthMoveMultiplier = 0.75f;
+        [SerializeField] private float depthMoveMultiplier = 0.75f;
         private float airControlMultiplier = 0.5f;
         private float knockbackDecayRate = 12f; // 넉백 지수 감쇠율(구프로젝트 KnockbackInertia=12)
 
@@ -404,8 +404,8 @@ namespace Yeolha.BeltScroll
         public void ClearAvailableClimbable(ClimbableSurface surf) { if (_availableClimbable == surf) _availableClimbable = null; }
 
 
-        
-public bool IsDashOverrideActive => _dashActive;
+
+        public bool IsDashOverrideActive => _dashActive;
         public Vector3 SplineForward => _smoothedForward;
 
         // ─────────── Attack Motion (공격 전진 — 구버전 AnimationMoveForward 커브 이식) ───────────
