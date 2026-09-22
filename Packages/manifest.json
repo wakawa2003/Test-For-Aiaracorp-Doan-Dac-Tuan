@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.bazyleu.unistate": "https://github.com/bazyleu/UniState.git?path=Assets/UniState",
+    "com.cysharp.r3": "https://github.com/Cysharp/R3.git?path=src/R3.Unity/Assets/R3.Unity#1.3.1",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
     "com.doantuan.easydi": "https://github.com/wakawa2003/EasyDI-Core-upm.git",
     "com.github-glitchenzo.nugetforunity": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
