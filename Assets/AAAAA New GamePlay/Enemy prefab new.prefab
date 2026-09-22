@@ -14679,7 +14679,6 @@ GameObject:
   - component: {fileID: 5953971495119347418}
   - component: {fileID: 4053966889418606778}
   - component: {fileID: 7099250929992408223}
-  - component: {fileID: 5857546576056714520}
   - component: {fileID: 5168314214902074857}
   m_Layer: 7
   m_Name: Enemy prefab new
@@ -14696,15 +14695,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2936957586733818673}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9971798, z: -0, w: 0.07504954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.76, y: 0.24, z: -7.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5336923099314355322}
   - {fileID: 1468051118899425169}
   - {fileID: 4528938576368335022}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -171.392, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &4053966889418606778
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14755,21 +14755,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 1
---- !u!114 &5857546576056714520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2936957586733818673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073a98a8df657cd42b54a32237c3ea47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.CameraFocusTarget
-  weightMultiplier: 1
-  radius: 0.5
-  customTargetTransform: {fileID: 5336923099314355322}
 --- !u!114 &5168314214902074857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14782,14 +14767,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a584cc45ce6ecee4c99b31b3481618fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyGameNamespace.NewEnemyController
+  body: {fileID: 1468051118899425169}
   speed: 4
   speedAnimation: 1
   animator: {fileID: 3968441858937940919}
   rigidbody: {fileID: 7099250929992408223}
-  animationEvent: {fileID: 0}
+  focusPoint: {fileID: 5336923099314355322}
   attackStage: 1
   attackTime: 1
   attackTimeFeedback: 0.2
+  attackDelay: 0.2
+  attackRangeClose: 2.2
+  attackRangeFar: 6
   Health: 100
   MaxHealth: 100
 --- !u!1 &3717782192545239473
@@ -15161,13 +15150,13 @@ VisualEffect:
       - m_Value: {x: 1, y: 1, z: 1}
         m_Name: VFXTransform_scale
         m_Overridden: 1
-      - m_Value: {x: -0.00000009216179, y: 0.0000066341227, z: 269.96677}
+      - m_Value: {x: 2.035555e-13, y: 0.000006830188, z: 269.96677}
         m_Name: SkinnedMeshTransform_angles
         m_Overridden: 1
-      - m_Value: {x: 2.6275082, y: 1.679611, z: -8.105266}
+      - m_Value: {x: 2.627509, y: 1.679611, z: -8.105265}
         m_Name: SkinnedMeshTransform_position
         m_Overridden: 1
-      - m_Value: {x: 0.77417004, y: 0.77417004, z: 0.77417004}
+      - m_Value: {x: 0.77417004, y: 0.77417016, z: 0.7741701}
         m_Name: SkinnedMeshTransform_scale
         m_Overridden: 1
       - m_Value: {x: 0, y: 0.1, z: 0}
@@ -25217,7 +25206,6 @@ Transform:
   m_Children:
   - {fileID: 8148596783671804772}
   - {fileID: 3703367165208569277}
-  - {fileID: 5336923099314355322}
   m_Father: {fileID: 5953971495119347418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2348218160665953798
@@ -30584,11 +30572,11 @@ Transform:
   m_GameObject: {fileID: 7636530546044593717}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.120000005, z: 1.02}
+  m_LocalPosition: {x: -0, y: -0.120000005, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1468051118899425169}
+  m_Father: {fileID: 5953971495119347418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8719317691842615844
 GameObject:
@@ -30895,7 +30883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
       propertyPath: m_LocalRotation.x
@@ -30903,7 +30891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
       propertyPath: m_LocalRotation.z
@@ -30915,7 +30903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5006956292142634599, guid: 9af713c23a5acba498800338db003f36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -31055,7 +31043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6907447248755938122, guid: 9af713c23a5acba498800338db003f36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 6907447248755938122, guid: 9af713c23a5acba498800338db003f36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -31156,6 +31144,10 @@ PrefabInstance:
     - target: {fileID: 8069966517954782760, guid: 9af713c23a5acba498800338db003f36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 58.578644
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207876493185342934, guid: 9af713c23a5acba498800338db003f36, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8291325351269122997, guid: 9af713c23a5acba498800338db003f36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

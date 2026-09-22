@@ -5,17 +5,18 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using R3;
 using UniState;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace MyGameNamespace
 {
     public class NewCharacterController : MonoBehaviour
     {
+        [SerializeField] private Transform body;
         [SerializeField] private float speed = 4;
         [SerializeField] private float speedAnimation = 1;
         [SerializeField] private Animator animator;
         [SerializeField] private Rigidbody rigidbody;
-        [SerializeField] private TuanTool.AnimationEvent animationEvent;
         [SerializeField] private int attackStage = 1;
         [SerializeField] private float attackTime = 1;
         [SerializeField] private float attackTimeFeedback = 0.2f;
@@ -72,8 +73,16 @@ namespace MyGameNamespace
                         float x = Input.GetAxis("Horizontal");
                         float y = Input.GetAxis("Vertical");
 
+                        if (x != 0 && Payload.body != null)
+                        {
+                            Vector3 scale = Payload.body.localScale;
+                            scale.x = Mathf.Abs(scale.x) * Mathf.Sign(x);
+                            Payload.body.localScale = scale;
+                            Payload.animator.SetFloat("RelativeForwardSpeedNormalized", math.sign(scale.x) * x);
+                        }
+
                         Payload.animator.SetBool("Walking", x != 0 || y != 0);
-                        Payload.animator.SetFloat("RelativeForwardSpeedNormalized", x);
+
                         Payload.animator.SetFloat("RelativeLateralSpeedNormalized", y);
                         Payload.animator.SetFloat(
                             "WalkSpeedMultiplier",

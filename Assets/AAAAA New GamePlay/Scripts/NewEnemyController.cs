@@ -2,9 +2,11 @@ using System;
 using System.Threading;
 using Aiara;
 using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Triggers;
 using DG.Tweening;
 using R3;
 using UniState;
+using Unity.Mathematics;
 using UnityEngine;
 
 
@@ -12,18 +14,23 @@ namespace MyGameNamespace
 {
     public class NewEnemyController : MonoBehaviour
     {
+
+        [SerializeField] private Transform body;
         [SerializeField] private float speed = 4;
         [SerializeField] private float speedAnimation = 1;
         [SerializeField] private Animator animator;
         [SerializeField] private Rigidbody rigidbody;
-        [SerializeField] private TuanTool.AnimationEvent animationEvent;
+        [SerializeField] private Transform focusPoint;
         [SerializeField] private int attackStage = 1;
         [SerializeField] private float attackTime = 1;
         [SerializeField] private float attackTimeFeedback = 0.2f;
+        [SerializeField] private float attackDelay = 0.2f;
+        [SerializeField] private float attackRangeClose = 2.2f;
+        [SerializeField] private float attackRangeFar = 5.2f;
         public int Health = 100;
         public int MaxHealth = 100;
 
-
+        NewCharacterController target;
         IStateMachine stateMachine = new StateMachine();
 
         public class Resolver : ITypeResolver
@@ -36,7 +43,8 @@ namespace MyGameNamespace
 
         void Awake()
         {
-
+            target = FindAnyObjectByType<NewCharacterController>();
+            GameController.Ins.listFocusPoint.Add(focusPoint);
             stateMachine = new StateMachine();
             Health = MaxHealth;
             stateMachine.SetResolver(new Resolver());
@@ -55,6 +63,8 @@ namespace MyGameNamespace
             animator.SetBool("Walking", false);
             animator.SetFloat("RelativeForwardSpeedNormalized", 0);
         }
+
+
         public class NormalState : StateBase<NewEnemyController>
         {
             private IDisposable moveSubscription;
@@ -75,11 +85,28 @@ namespace MyGameNamespace
                     .EveryUpdate(UnityFrameProvider.FixedUpdate)
                     .Subscribe(_ =>
                     {
-                        float x = Input.GetAxis("Horizontal");
-                        float y = Input.GetAxis("Vertical");
+                        // float x = Input.GetAxis("Horizontal");
+                        // float y = Input.GetAxis("Vertical");
+                        float x = 0;
+                        float y = 0;
 
+                        var attackRangeMin = Mathf.Min(Payload.attackRangeFar, Payload.attackRangeFar);
+                        var attackRangeMax = Mathf.Min(Payload.attackRangeFar, Payload.attackRangeFar);
+
+                        if (Vector3.Distance(Payload.transform.position, Payload.target.transform.position) >= attackRangeMax)
+                        {
+                            x = -math.sign(Payload.transform.position.x - Payload.target.transform.position.x);
+                        }
+
+
+                        if (x != 0 && Payload.body != null)
+                        {
+                            Vector3 scale = Payload.body.localScale;
+                            scale.x = Mathf.Abs(scale.x) * Mathf.Sign(x);
+                            Payload.body.localScale = scale;
+                            Payload.animator.SetFloat("RelativeForwardSpeedNormalized", math.sign(scale.x) * x);
+                        }
                         Payload.animator.SetBool("Walking", x != 0 || y != 0);
-                        Payload.animator.SetFloat("RelativeForwardSpeedNormalized", x);
                         Payload.animator.SetFloat(
                             "WalkSpeedMultiplier",
                             Payload.speedAnimation);
@@ -89,6 +116,8 @@ namespace MyGameNamespace
                         Payload.rigidbody.MovePosition(
                             Payload.transform.position
                             + direction * Payload.speed * Time.fixedDeltaTime);
+
+
                     });
 
                 try
