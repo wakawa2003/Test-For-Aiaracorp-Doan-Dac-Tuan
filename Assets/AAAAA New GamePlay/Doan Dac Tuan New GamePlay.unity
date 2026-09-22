@@ -6686,14 +6686,12 @@ MonoBehaviour:
   _entries:
   - Key: Enemy_Landing
     Player: {fileID: 2080744002}
+  - Key: Enemy_Prepare_Landing
+    Player: {fileID: 1332847770}
   - Key: Character Attack
     Player: {fileID: 1898273507}
-  - Key: EnemyHit
+  - Key: Enemy Attack
     Player: {fileID: 1304556504}
-  - Key: Guard
-    Player: {fileID: 539593499}
-  - Key: EnemyHit
-    Player: {fileID: 1115173699}
 --- !u!4 &228927142
 Transform:
   m_ObjectHideFlags: 0
@@ -6707,6 +6705,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1332847769}
   - {fileID: 2080744003}
   - {fileID: 1898273506}
   - {fileID: 1304556503}
@@ -20940,7 +20939,7 @@ MonoBehaviour:
   pivotNode: {fileID: 1565462105}
   springArmNode: {fileID: 598110691}
   shakeNode: {fileID: 1582062264}
-  lensNode: {fileID: 1518211863}
+  lensNode: {fileID: 0}
 --- !u!114 &880571793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29435,6 +29434,260 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1523713984}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1332847768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1332847769}
+  - component: {fileID: 1332847770}
+  m_Layer: 0
+  m_Name: Enemy_Prepare_FeedBack_Landing (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1332847769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332847768}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.56035995, y: 1.27, z: -4.84002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228927142}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1332847770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332847768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.Feedbacks.MMF_Player
+  Feedbacks: []
+  InitializationMode: 0
+  AutoInitialization: 1
+  SafeMode: 3
+  Direction: 1
+  AutoChangeDirectionOnEnd: 0
+  AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  ForceTimescaleMode: 0
+  ForcedTimescaleMode: 1
+  DurationMultiplier: 1
+  TimescaleMultiplier: 1
+  RandomizeDuration: 0
+  RandomDurationMultiplier: {x: 0.5, y: 1.5}
+  DisplayFullDurationDetails: 0
+  PlayerTimescaleMode: 1
+  OnlyPlayIfWithinRange: 0
+  RangeCenter: {fileID: 0}
+  RangeDistance: 5
+  UseRangeFalloff: 0
+  RangeFalloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  RemapRangeFalloff: {x: 0, y: 1}
+  IgnoreRangeEvents: 0
+  CooldownDuration: 0
+  InitialDelay: 0.1
+  CanPlay: 1
+  CanPlayWhileAlreadyPlaying: 1
+  ChanceToPlay: 100
+  FeedbacksIntensity: 3.6
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnStop:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeDirection:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRestoreInitialValues:
+      m_PersistentCalls:
+        m_Calls: []
+    OnSkipToTheEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInitializationComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEnable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDisable:
+      m_PersistentCalls:
+        m_Calls: []
+  DebugActive: 0
+  InScriptDrivenPause: 0
+  FeedbacksList:
+  - rid: 7649058806478930420
+  KeepPlayModeChanges: 1
+  PerformanceMode: 0
+  RestoreInitialValuesOnDisable: 0
+  StopFeedbacksOnDisable: 0
+  PlayCount: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 7649058806478930420
+      type: {class: MMF_CameraZoom, ns: MoreMountains.Feedbacks, asm: Assembly-CSharp}
+      data:
+        Active: 1
+        UniqueID: -1751991551
+        Label: Camera Zoom
+        OriginalLabel: Camera Zoom
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 1
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: Automatic Shaker Setup
+        Owner: {fileID: 1332847770}
+        DebugActive: 0
+        ZoomMode: 0
+        ZoomFieldOfView: 10
+        ZoomTransitionDuration: 0.1
+        ZoomDuration: 1
+        RelativeFieldOfView: 1
+        ZoomTween:
+          MMTweenDefinitionType: 1
+          MMTweenCurve: 0
+          Curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          Initialized: 0
+          ConditionPropertyName: 
+          EnumConditionPropertyName: 
+          EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &1335663608
 GameObject:
   m_ObjectHideFlags: 0
@@ -30244,7 +30497,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1518211862}
-  - component: {fileID: 1518211863}
   m_Layer: 0
   m_Name: LensNode
   m_TagString: Untagged
@@ -30268,20 +30520,6 @@ Transform:
   - {fileID: 1945608571}
   m_Father: {fileID: 1582062263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1518211863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518211861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5febebcaa2eaa047bd495bba8169eaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.LensCameraNode
-  targetCamera: {fileID: 296070586}
-  baseFov: 40
 --- !u!1 &1523713983
 GameObject:
   m_ObjectHideFlags: 0
@@ -39024,7 +39262,7 @@ MonoBehaviour:
         CameraShakeProperties:
           Duration: 0.3
           Amplitude: 0.4
-          Frequency: 10
+          Frequency: 5
           AmplitudeX: 0
           AmplitudeY: 0
           AmplitudeZ: 0
@@ -39102,34 +39340,34 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 1898273507}
         DebugActive: 0
-        ZoomMode: 1
-        ZoomFieldOfView: 30
-        ZoomTransitionDuration: 0.05
+        ZoomMode: 0
+        ZoomFieldOfView: -3
+        ZoomTransitionDuration: 0.01
         ZoomDuration: 0.1
-        RelativeFieldOfView: 0
+        RelativeFieldOfView: 1
         ZoomTween:
           MMTweenDefinitionType: 1
-          MMTweenCurve: 4
+          MMTweenCurve: 0
           Curve:
             serializedVersion: 2
             m_Curve:
             - serializedVersion: 3
               time: 0
               value: 0
-              inSlope: 0
-              outSlope: 0
+              inSlope: 17.02025
+              outSlope: 17.02025
               tangentMode: 0
-              weightedMode: 0
+              weightedMode: 3
               inWeight: 0
-              outWeight: 0
+              outWeight: 0.060000006
             - serializedVersion: 3
               time: 1
               value: 1
-              inSlope: 0
-              outSlope: 0
+              inSlope: 0.15577483
+              outSlope: 0.15577483
               tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
+              weightedMode: 3
+              inWeight: 0.17333329
               outWeight: 0
             m_PreInfinity: 2
             m_PostInfinity: 2
@@ -40900,9 +41138,9 @@ MonoBehaviour:
   DebugActive: 0
   InScriptDrivenPause: 0
   FeedbacksList:
-  - rid: 7649058806478930260
-  - rid: 7649058806478930261
-  - rid: 7649058806478930262
+  - rid: 7649058806478930440
+  - rid: 7649058806478930441
+  - rid: 7649058806478930442
   KeepPlayModeChanges: 1
   PerformanceMode: 0
   RestoreInitialValuesOnDisable: 0
@@ -40911,11 +41149,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7649058806478930260
+    - rid: 7649058806478930440
       type: {class: MMF_CameraShake, ns: MoreMountains.Feedbacks, asm: Assembly-CSharp}
       data:
         Active: 1
-        UniqueID: -330970079
+        UniqueID: 1344071689
         Label: Landing
         OriginalLabel: Camera Shake
         ChannelMode: 0
@@ -40988,16 +41226,16 @@ MonoBehaviour:
         RepeatUntilStopped: 0
         CameraShakeProperties:
           Duration: 0.5
-          Amplitude: 0.9
+          Amplitude: 1.3
           Frequency: 10
           AmplitudeX: 0
           AmplitudeY: 0
           AmplitudeZ: 0
-    - rid: 7649058806478930261
+    - rid: 7649058806478930441
       type: {class: MMF_CameraZoom, ns: MoreMountains.Feedbacks, asm: Assembly-CSharp}
       data:
         Active: 1
-        UniqueID: 759522946
+        UniqueID: 776520970
         Label: Camera Zoom
         OriginalLabel: Camera Zoom
         ChannelMode: 0
@@ -41067,9 +41305,9 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 2080744002}
         DebugActive: 0
-        ZoomMode: 1
-        ZoomFieldOfView: 80
-        ZoomTransitionDuration: 0.05
+        ZoomMode: 0
+        ZoomFieldOfView: 10
+        ZoomTransitionDuration: 0.3
         ZoomDuration: 1
         RelativeFieldOfView: 1
         ZoomTween:
@@ -41103,11 +41341,11 @@ MonoBehaviour:
           ConditionPropertyName: 
           EnumConditionPropertyName: 
           EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
-    - rid: 7649058806478930262
+    - rid: 7649058806478930442
       type: {class: MMF_Particles, ns: MoreMountains.Feedbacks, asm: Assembly-CSharp}
       data:
         Active: 1
-        UniqueID: -1295013398
+        UniqueID: 1590770707
         Label: Particles Play
         OriginalLabel: Particles Play
         ChannelMode: 0
