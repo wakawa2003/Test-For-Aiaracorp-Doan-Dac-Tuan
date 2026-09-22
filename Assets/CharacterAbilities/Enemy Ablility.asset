@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy Ablility
   m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.CharacterAbility
   displayName: 
-  maxHP: 100
+  maxHP: 10000
   defense: 5
   lifeCount: 1
   attackPower: 10
