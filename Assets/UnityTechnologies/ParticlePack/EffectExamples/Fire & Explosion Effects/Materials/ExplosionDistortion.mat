@@ -136,7 +136,7 @@ Material:
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1.1887974, g: 0.7667743, b: 0.43391097, a: 1}
-    - _Color0: {r: 0.06415099, g: 0.06415099, b: 0.06415099, a: 0.45490196}
+    - _Color0: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 0.7607843}
     - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _Distortino_Speed: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _EmissionColor: {r: 0.5, g: 0.33138573, b: 0.2287736, a: 1}

@@ -30,10 +30,12 @@ namespace MyGameNamespace
         public int Health = 100;
         public int MaxHealth = 100;
         [SerializeField] private AttackingState.CloseAttack CloseAttack;
-        [SerializeField] private AttackingState.CloseAttack FarAttack;
+        [SerializeField] private AttackingState.FarAttack FarAttack;
 
         NewCharacterController target;
         IStateMachine stateMachine = new StateMachine();
+
+        public Rigidbody Rigidbody { get => rigidbody; }
 
         public class Resolver : ITypeResolver
         {
@@ -58,6 +60,7 @@ namespace MyGameNamespace
         {
             animator.ResetTrigger("Attack");
             animator.SetBool("Walking", false);
+            animator.SetBool("Jumping", false);
             animator.SetFloat("RelativeForwardSpeedNormalized", 0);
         }
         public class IntroState : StateBase<NewEnemyController>
@@ -99,7 +102,7 @@ namespace MyGameNamespace
                         float y = 0;
 
                         var attackRangeMin = Mathf.Min(Payload.CloseAttack.range, Payload.FarAttack.range);
-                        var attackRangeMax = Mathf.Min(Payload.CloseAttack.range, Payload.FarAttack.range);
+                        var attackRangeMax = Mathf.Max(Payload.CloseAttack.range, Payload.FarAttack.range);
 
                         if (Vector3.Distance(Payload.transform.position, Payload.target.transform.position) >= attackRangeMax)//move toi tam co the danh
                         {
@@ -182,6 +185,11 @@ namespace MyGameNamespace
                     await Payload.FarAttack.AttackAction();
                 }
 
+                else
+                {
+                    await UniTask.WaitForSeconds(1);//doi de tranh loop
+                }
+
                 return Transition.GoTo<NormalState, NewEnemyController>(Payload);
             }
 
@@ -191,11 +199,14 @@ namespace MyGameNamespace
             {
                 public float range = 3;
                 public float waitTime = 1f;
+                public bool IsAttacking;
                 [SerializeField] private MMF_Player MMF_PlayerFeedBack;
                 public async UniTask AttackAction()
                 {
+                    IsAttacking = true;
                     await MMF_PlayerFeedBack.PlayFeedbacksTask();
                     await UniTask.WaitForSeconds(waitTime);
+                    IsAttacking = false;
                 }
             }
 
@@ -204,12 +215,62 @@ namespace MyGameNamespace
             {
                 public float range = 6;
                 public float waitTime = 0.5f;
-
+                public float jumpPower = 0.5f;
+                public float jumpSpeedAttackMultiple = 1;
+                public float jumpDuration = 0.5f;
+                public int numJump = 1;
+                public AnimationCurve easeLucLayDa;
+                public AnimationCurve easeLanTroLai;
+                public AnimationCurve easeJump;
+                public AnimationCurve easeSpeedAnimJump;
+                public MMF_Player feedBackStartJump;
+                public MMF_Player feedBackEndJump;
+                [SerializeField] private NewEnemyController newCharacterController;
                 [SerializeField] private MMF_Player MMF_PlayerFeedBack;
+                Sequence jumpTween;
+                public bool IsAttacking;
                 public async UniTask AttackAction()
                 {
+                    Debug.Log($"attack far");
+                    IsAttacking = true;
+                    newCharacterController.animator.SetFloat("Jump Side", -math.sign(newCharacterController.target.transform.position.x - newCharacterController.transform.position.x));
+                    newCharacterController.ResetAllAnim();
+                    newCharacterController.animator.SetBool("Jumping", true);
+                    jumpTween?.Kill();
+
+                    // jumpTween.Append(newCharacterController.rigidbody.DOMove(newCharacterController.target.transform.position, jumpDuration).SetEase(easeJump));
+                    // jumpTween.Append(newCharacterController.rigidbody.DOMoveY(newCharacterController.target.transform.position.y + jumpPower, jumpDuration).SetEase(easeJump));
+                    var viTriBanDau = newCharacterController.transform.position;
+                    var viTriLayDa = newCharacterController.transform.position - (newCharacterController.target.transform.position - newCharacterController.transform.position).normalized * 3f;
+                    jumpTween = DOTween.Sequence();
+                    jumpTween.Append(newCharacterController.rigidbody.DOMove(viTriLayDa, jumpDuration).SetUpdate(UpdateType.Fixed).SetEase(easeLucLayDa));
+                    await jumpTween.AsyncWaitForCompletion();//doi den khi lay da xong
+                    newCharacterController.animator.SetFloat("Speed Anim Jump", easeSpeedAnimJump.Evaluate(0) * jumpSpeedAttackMultiple);
+                    newCharacterController.animator.SetFloat("Jump Side", math.sign(newCharacterController.target.transform.position.x - newCharacterController.transform.position.x));
+
+                    jumpTween = DOTween.Sequence();
+                    jumpTween.Append(newCharacterController.rigidbody.DOMove(viTriBanDau, jumpDuration).SetUpdate(UpdateType.Fixed).SetEase(easeLanTroLai));
+                    await jumpTween.AsyncWaitForCompletion();//tro ve vi tri ban dau roi moi nhay
+
+
+
+                    jumpTween = DOTween.Sequence();
+                    var viTriEnd = newCharacterController.target.transform.position + (newCharacterController.target.transform.position - newCharacterController.transform.position).normalized * 1;
+                    jumpTween.Append(newCharacterController.rigidbody.DOJump(viTriEnd, jumpPower, numJump, jumpDuration).SetUpdate(UpdateType.Fixed).SetEase(easeJump));
+                    // jumpTween = ;
+                    jumpTween.Join(DOVirtual.Float(0, 1, jumpDuration, t =>
+                    {
+                        newCharacterController.animator.SetFloat("Speed Anim Jump", t * jumpSpeedAttackMultiple);
+                    }).SetEase(easeSpeedAnimJump));
+
+                    jumpTween.Play();
+                    feedBackStartJump.PlayFeedbacks();
+                    await jumpTween.AsyncWaitForCompletion();
+                    feedBackEndJump.PlayFeedbacks();
+                    newCharacterController.animator.SetBool("Jumping", false);
                     await MMF_PlayerFeedBack.PlayFeedbacksTask();
                     await UniTask.WaitForSeconds(waitTime);
+                    IsAttacking = false;
                 }
             }
         }
