@@ -22152,7 +22152,7 @@ Transform:
   m_GameObject: {fileID: 880571790}
   serializedVersion: 2
   m_LocalRotation: {x: -0.08982891, y: -0, z: -0, w: 0.99595726}
-  m_LocalPosition: {x: -0.03, y: 1.53, z: -11.44}
+  m_LocalPosition: {x: -1.54, y: 1.24, z: -13.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22194,9 +22194,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.CombatCameraController
   rig: {fileID: 880571792}
   playerWeight: 3
-  mainTargetWeight: 2
-  otherEnemyWeight: 1
-  weightTransitionDuration: 0.027
+  mainTargetWeight: 3
+  otherEnemyWeight: 3
+  weightTransitionDuration: 0
   engagedOnly: 1
   otherEnemyInfluenceDistance: 12
   filterHysteresis: 1.15
@@ -22214,20 +22214,20 @@ MonoBehaviour:
   verticalFramingPadding: 1.2
   frameFromWeightedCenter: 1
   useMainTargetZoom: 1
-  zoomInStartDistance: 3
-  zoomInFullDistance: 1.2
-  zoomInDistanceScale: 0.532
-  zoomBlendSmoothTime: 0.08
+  zoomInStartDistance: 60.87
+  zoomInFullDistance: 10.13
+  zoomInDistanceScale: 0.724
+  zoomBlendSmoothTime: 0.418
   combatFollowOffset: {x: 0, y: 0, z: 0}
-  focusWeightMultiplier: 2
+  focusWeightMultiplier: 15.52
   focusWeightTransitionDuration: 0.033
   focusHoldDuration: 1
   maxFocusChaseDistance: 8
   focusStuckDistance: 25
   debugMainTarget: {fileID: 0}
-  debugActiveEnemyCount: 0
-  debugRegisteredEnemyCount: 0
-  debugFramingDistance: 0
+  debugActiveEnemyCount: 2
+  debugRegisteredEnemyCount: 2
+  debugFramingDistance: 8
   debugFocusActive: 0
   debugZoomBlend: 0
 --- !u!1 &885691411
@@ -24968,6 +24968,7 @@ GameObject:
   - component: {fileID: 1200068787}
   - component: {fileID: 1200068788}
   - component: {fileID: 1200068786}
+  - component: {fileID: 1200068789}
   m_Layer: 6
   m_Name: Main Character
   m_TagString: Untagged
@@ -25011,6 +25012,8 @@ MonoBehaviour:
   attackStage: 4
   attackTime: 1
   attackTimeFeedback: 0.2
+  lockDownDuration: 4
+  fireEffect: {fileID: 1065475534255866555}
   Health: 100
   MaxHealth: 100
 --- !u!136 &1200068787
@@ -25063,6 +25066,21 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!114 &1200068789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200068779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073a98a8df657cd42b54a32237c3ea47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.CameraFocusTarget
+  weightMultiplier: 1
+  radius: 0.5
+  customTargetTransform: {fileID: 980880243}
 --- !u!1 &1207354551
 GameObject:
   m_ObjectHideFlags: 0
@@ -31491,7 +31509,7 @@ MonoBehaviour:
   DebugActive: 0
   InScriptDrivenPause: 0
   FeedbacksList:
-  - rid: 7649058806478930596
+  - rid: 7649058806478930622
   KeepPlayModeChanges: 1
   PerformanceMode: 0
   RestoreInitialValuesOnDisable: 0
@@ -31500,11 +31518,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7649058806478930596
+    - rid: 7649058806478930622
       type: {class: MMF_CameraZoom, ns: MoreMountains.Feedbacks, asm: Assembly-CSharp}
       data:
         Active: 1
-        UniqueID: -357056889
+        UniqueID: -486482920
         Label: Camera Zoom
         OriginalLabel: Camera Zoom
         ChannelMode: 0
@@ -33149,11 +33167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccffa63a28c20aa48a8d9a8a46a9fcf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.PivotCameraNode
-  basePitch: 5
+  basePitch: 3
   sideSign: 1
   yawOffset: 0
-  rotationSmoothTime: 0.3
-  defaultViewDirection: {x: 0, y: 0, z: 1}
+  rotationSmoothTime: 1.031
+  defaultViewDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1582062262
 GameObject:
   m_ObjectHideFlags: 0
@@ -39169,9 +39187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c98f25a1b706df439ee8bf08fe08cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyGameNamespace.GameController
-  focusPoint: {fileID: 1358879324}
-  listFocusPoint:
-  - {fileID: 980880243}
   posSpawnEnemy: {fileID: 234322827}
   colliderSpawnEnemy: {fileID: 234322828}
   EnemyPrefabs: {fileID: 5953971495119347418, guid: 734f9da03c80a61429b3c2c22c9e3b94, type: 3}
@@ -43513,9 +43528,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba3aee695757234a918b0a64425c089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Yeolha.BeltScroll.FollowCameraNode
-  followOffset: {x: 0, y: 2, z: 0}
-  followSmoothTime: 0.5
-  maxFollowSpeed: 60
+  followOffset: {x: 0, y: 2.15, z: -2.66}
+  followSmoothTime: 1.124
+  maxFollowSpeed: 100
   flipOffsetZWithFacing: 0
 --- !u!1 &2016570817
 GameObject:
@@ -44142,8 +44157,8 @@ MonoBehaviour:
   DebugActive: 0
   InScriptDrivenPause: 0
   FeedbacksList:
-  - rid: 7649058806478930594
-  - rid: 7649058806478930595
+  - rid: 7649058806478930619
+  - rid: 7649058806478930620
   KeepPlayModeChanges: 1
   PerformanceMode: 0
   RestoreInitialValuesOnDisable: 0
@@ -44152,11 +44167,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7649058806478930594
+    - rid: 7649058806478930619
       type: {class: MMF_CameraShake, ns: MoreMountains.Feedbacks, asm: Assembly-CSharp}
       data:
         Active: 1
-        UniqueID: -1636198026
+        UniqueID: 988790796
         Label: Landing
         OriginalLabel: Camera Shake
         ChannelMode: 0
@@ -44234,11 +44249,11 @@ MonoBehaviour:
           AmplitudeX: 0
           AmplitudeY: 0
           AmplitudeZ: 0
-    - rid: 7649058806478930595
+    - rid: 7649058806478930620
       type: {class: MMF_Particles, ns: MoreMountains.Feedbacks, asm: Assembly-CSharp}
       data:
         Active: 1
-        UniqueID: -777314642
+        UniqueID: -930985553
         Label: Particles Play
         OriginalLabel: Particles Play
         ChannelMode: 0
@@ -49860,7 +49875,7 @@ VisualEffect:
       - m_Value: 48
         m_Name: SmokeSpawnRate
         m_Overridden: 1
-      - m_Value: 0.28
+      - m_Value: 0.93
         m_Name: SwarmSizeMax
         m_Overridden: 1
       - m_Value: 80
@@ -50080,13 +50095,13 @@ VisualEffect:
       - m_Value: {x: 1, y: 1, z: 1}
         m_Name: VFXTransform_scale
         m_Overridden: 1
-      - m_Value: {x: 0.5090163, y: 270, z: 207.294}
+      - m_Value: {x: -0, y: 90, z: -0}
         m_Name: SkinnedMeshTransform_angles
         m_Overridden: 1
-      - m_Value: {x: 0.010025948, y: -1.1285601, z: 0.582367}
+      - m_Value: {x: -2.34, y: 1.62, z: -7.8}
         m_Name: SkinnedMeshTransform_position
         m_Overridden: 1
-      - m_Value: {x: 0.9999999, y: 0.9999998, z: 0.9999999}
+      - m_Value: {x: 1.0000002, y: 1, z: 1.0000002}
         m_Name: SkinnedMeshTransform_scale
         m_Overridden: 1
       - m_Value: {x: 0, y: 0.1, z: 0}
@@ -50157,7 +50172,7 @@ VisualEffect:
         m_Overridden: 0
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 20.865906, y: 0, z: 1.7750454, w: 1}
+      - m_Value: {x: 20.865906, y: 4.707293, z: 0, w: 1}
         m_Name: SecondaryColor
         m_Overridden: 1
       - m_Value: {x: 0.10707603, y: 0.08067818, z: 0.3490566, w: 1}
@@ -50175,9 +50190,9 @@ VisualEffect:
       m_Array:
       - m_Value:
           serializedVersion: 2
-          key0: {r: 1.6156863, g: 0.20392157, b: 2.9960785, a: 1}
-          key1: {r: 0.17254902, g: 0.10980392, b: 1.4980392, a: 1}
-          key2: {r: 0.07123784, g: 0.054901935, b: 0.7490196, a: 0}
+          key0: {r: 2.9960785, g: 1.7440063, b: 0.21960774, a: 1}
+          key1: {r: 1.6981133, g: 0.28076938, b: 0, a: 1}
+          key2: {r: 0, g: 0, b: 0, a: 0}
           key3: {r: 0.7490196, g: 0.101960786, b: 0.05490196, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
           key5: {r: 0, g: 0, b: 0, a: 0}
@@ -50200,7 +50215,7 @@ VisualEffect:
           atime6: 0
           atime7: 0
           m_Mode: 0
-          m_ColorSpace: -1
+          m_ColorSpace: 1
           m_NumColorKeys: 3
           m_NumAlphaKeys: 2
         m_Name: ColorOverLife
@@ -50289,8 +50304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 1065475534255866553}
+  m_Bindings: []
   m_VisualEffect: {fileID: 1065475534255866549}
 --- !u!114 &1065475534255866552
 MonoBehaviour:
@@ -50316,7 +50330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fdfea1f838247c40921a07afedde962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Space: 0
+  Space: 1
   m_Property:
     m_Name: SkinnedMeshTransform
   Target: {fileID: 66548895}

@@ -6,6 +6,7 @@ using Cysharp.Threading.Tasks.Triggers;
 using DG.Tweening;
 using MoreMountains.Feedbacks;
 using R3;
+using R3.Triggers;
 using UniState;
 using Unity.Mathematics;
 using UnityEngine;
@@ -27,6 +28,7 @@ namespace MyGameNamespace
         [SerializeField] private float attackTime = 1;
         [SerializeField] private float attackTimeFeedback = 0.2f;
         [SerializeField] private float attackDelay = 0.2f;
+
         public int Health = 100;
         public int MaxHealth = 100;
         [SerializeField] private AttackingState.CloseAttack CloseAttack;
@@ -48,13 +50,15 @@ namespace MyGameNamespace
         void Awake()
         {
             target = FindAnyObjectByType<NewCharacterController>();
-            GameController.Ins.listFocusPoint.Add(focusPoint);
             stateMachine = new StateMachine();
             Health = MaxHealth;
             stateMachine.SetResolver(new Resolver());
             stateMachine.Execute<IntroState, NewEnemyController>(this, destroyCancellationToken);
         }
-
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.DrawWireSphere(transform.position, CloseAttack.rangeExplosion);
+        }
         public bool IsDeath() => Health <= 0;
         public void ResetAllAnim()
         {
@@ -142,7 +146,7 @@ namespace MyGameNamespace
                     await Observable
                         .EveryUpdate(UnityFrameProvider.Update)
                         .FirstAsync(_ =>
-                            Payload.IsDeath() || isCanAttack ||
+                            Payload.IsDeath() || (isCanAttack && Payload.target.IsCanAttack) ||
                             Input.GetButtonDown("Fire1"));
 
                     // Ưu tiên chết nếu cùng frame vừa attack vừa hết máu.
@@ -153,7 +157,7 @@ namespace MyGameNamespace
                     if (isCanAttack)
                         return Transition.GoTo<AttackingState, NewEnemyController>(Payload);
 
-                    return Transition.GoTo<AttackingState, NewEnemyController>(Payload);
+                    return Transition.GoTo<NormalState, NewEnemyController>(Payload);
                 }
                 finally
                 {
@@ -198,13 +202,32 @@ namespace MyGameNamespace
             public class CloseAttack
             {
                 public float range = 3;
+                public float rangeExplosion = 5;
+                public float forceToVictim = 1000;
                 public float waitTime = 1f;
                 public bool IsAttacking;
                 [SerializeField] private MMF_Player MMF_PlayerFeedBack;
+                [SerializeField] private NewEnemyController newEnemyController;
                 public async UniTask AttackAction()
                 {
                     IsAttacking = true;
                     await MMF_PlayerFeedBack.PlayFeedbacksTask();
+
+                    //check gay damage
+                    var l = Physics.SphereCastAll(newEnemyController.transform.position, rangeExplosion, Vector3.up);
+
+                    foreach (var item in l)
+                    {
+
+                        if (item.transform.GetComponentInParent<NewCharacterController>() != null)
+                        {
+                            var vectorPush = item.transform.position - newEnemyController.transform.position;
+                            vectorPush.y = 0;
+                            item.transform.GetComponentInParent<NewCharacterController>().Push(vectorPush.normalized * forceToVictim);
+                            item.transform.GetComponentInParent<NewCharacterController>().Lockdown(true);
+                        }
+                    }
+
                     await UniTask.WaitForSeconds(waitTime);
                     IsAttacking = false;
                 }
@@ -213,6 +236,7 @@ namespace MyGameNamespace
             [System.Serializable]
             public class FarAttack
             {
+                public float forceToVictim = 1000;
                 public float range = 6;
                 public float waitTime = 0.5f;
                 public float jumpPower = 0.5f;
@@ -229,10 +253,29 @@ namespace MyGameNamespace
                 [SerializeField] private MMF_Player MMF_PlayerFeedBack;
                 Sequence jumpTween;
                 public bool IsAttacking;
+                IDisposable streamLockDown;
                 public async UniTask AttackAction()
                 {
                     Debug.Log($"attack far");
                     IsAttacking = true;
+
+
+                    //check lock down
+                    streamLockDown?.Dispose();
+                    streamLockDown = newCharacterController.OnCollisionEnterAsObservable().Subscribe(obj =>
+                    {
+                        if (obj.gameObject.GetComponentInParent<NewCharacterController>() != null)
+                        {
+
+                            var vectorPush = obj.gameObject.transform.position - newCharacterController.transform.position;
+                            vectorPush.y = 0;
+                            obj.gameObject.GetComponentInParent<NewCharacterController>().Push(vectorPush.normalized * forceToVictim);
+                            obj.gameObject.GetComponentInParent<NewCharacterController>().Lockdown(false);
+                        }
+                    });
+
+
+
                     newCharacterController.animator.SetFloat("Jump Side", -math.sign(newCharacterController.target.transform.position.x - newCharacterController.transform.position.x));
                     newCharacterController.ResetAllAnim();
                     newCharacterController.animator.SetBool("Jumping", true);
@@ -268,6 +311,7 @@ namespace MyGameNamespace
                     await jumpTween.AsyncWaitForCompletion();
                     feedBackEndJump.PlayFeedbacks();
                     newCharacterController.animator.SetBool("Jumping", false);
+                    streamLockDown?.Dispose();
                     await MMF_PlayerFeedBack.PlayFeedbacksTask();
                     await UniTask.WaitForSeconds(waitTime);
                     IsAttacking = false;

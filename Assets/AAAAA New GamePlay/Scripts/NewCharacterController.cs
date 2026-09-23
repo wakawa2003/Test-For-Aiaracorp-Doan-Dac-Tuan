@@ -4,6 +4,7 @@ using Aiara;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using R3;
+using Sirenix.OdinInspector;
 using UniState;
 using Unity.Mathematics;
 using UnityEngine;
@@ -20,9 +21,16 @@ namespace MyGameNamespace
         [SerializeField] private int attackStage = 1;
         [SerializeField] private float attackTime = 1;
         [SerializeField] private float attackTimeFeedback = 0.2f;
+        [SerializeField] private float lockDownDuration = 0.2f;
+        [SerializeField] private GameObject fireEffect;
+
+        bool isLockdownWithFire = false;
         public int Health = 100;
         public int MaxHealth = 100;
+        LockdownState lockdownState;
+        NormalState normalState;
 
+        public bool IsCanAttack => normalState != null;
 
         IStateMachine stateMachine = new StateMachine();
 
@@ -46,20 +54,37 @@ namespace MyGameNamespace
         public void ResetAllAnim()
         {
             animator.ResetTrigger("Attack");
+            animator.ResetTrigger("Lockdown");
             animator.SetBool("Walking", false);
             animator.SetFloat("RelativeForwardSpeedNormalized", 0);
             animator.SetFloat("RelativeLateralSpeedNormalized", 0);
         }
+
+        public void Push(Vector3 pushForce)
+        {
+            rigidbody.AddForce(pushForce, ForceMode.Impulse);
+        }
+
+        [Button]
+        public void Lockdown(bool isLockdownWithFire)
+        {
+            this.isLockdownWithFire = isLockdownWithFire;
+            normalState?.Lockdown();
+        }
+
         public class NormalState : StateBase<NewCharacterController>
         {
             private IDisposable moveSubscription;
+            public bool isLockdown = false;
             public override UniTask Initialize(CancellationToken token)
             {
+                Payload.normalState = this;
                 Payload.ResetAllAnim();
                 return base.Initialize(token);
             }
             public override UniTask Exit(CancellationToken token)
             {
+                Payload.normalState = null;
                 moveSubscription?.Dispose();
                 return base.Exit(token);
             }
@@ -102,11 +127,16 @@ namespace MyGameNamespace
                         .EveryUpdate(UnityFrameProvider.Update)
                         .FirstAsync(_ =>
                             Payload.IsDeath() ||
-                            Input.GetButtonDown("Fire1"));
+                            Input.GetButtonDown("Fire1") || isLockdown);
 
                     // Ưu tiên chết nếu cùng frame vừa attack vừa hết máu.
                     if (Payload.IsDeath())
                         return Transition.GoTo<DeathState, NewCharacterController>(Payload);
+
+
+                    //khi bi lock down
+                    if (isLockdown)
+                        return Transition.GoTo<LockdownState, NewCharacterController>(Payload);
 
                     return Transition.GoTo<AttackingState, NewCharacterController>(Payload);
                 }
@@ -115,6 +145,37 @@ namespace MyGameNamespace
                     // Rời NormalState thì ngừng di chuyển.
                     moveSubscription?.Dispose();
                 }
+            }
+
+            public void Lockdown()
+            {
+                isLockdown = true;
+            }
+
+        }
+
+        public class LockdownState : StateBase<NewCharacterController>
+        {
+            public override UniTask Initialize(CancellationToken token)
+            {
+                Payload.ResetAllAnim();
+                Payload.lockdownState = this;
+                Payload.animator.SetTrigger("Lockdown");
+                Payload.fireEffect.SetActive(Payload.isLockdownWithFire);
+                return base.Initialize(token);
+            }
+
+            public override UniTask Exit(CancellationToken token)
+            {
+                Payload.fireEffect.SetActive(false);
+                Payload.lockdownState = null;
+                return base.Exit(token);
+            }
+
+            public override async UniTask<StateTransitionInfo> Execute(CancellationToken token)
+            {
+                await UniTask.WaitForSeconds(Payload.lockDownDuration);
+                return Transition.GoTo<NormalState, NewCharacterController>(Payload);
             }
         }
 

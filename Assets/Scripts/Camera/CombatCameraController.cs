@@ -35,6 +35,37 @@ namespace Yeolha.BeltScroll
     [AddComponentMenu("Yeolha/Camera/Combat Camera Controller")]
     public class CombatCameraController : MonoBehaviour
     {
+
+        #region Singleton
+        private static CombatCameraController ins;
+        public static CombatCameraController Ins
+        {
+            get
+            {
+                if (ins == null)
+                {
+                    var a = FindObjectOfType<CombatCameraController>();
+                    a?.Awake();
+                }
+                return ins;
+            }
+            set => ins = value;
+        }
+        #endregion
+
+        private void Awake()
+        {
+            #region Singleton
+            if (ins == null)
+                ins = this;
+            else
+            {
+                if (ins != this)
+                    Destroy(gameObject);
+                return;
+            }
+            #endregion
+        }
         private const float WeightEpsilon = 0.001f;
 
         private enum FocusKind { Player, Enemy }
@@ -197,8 +228,10 @@ namespace Yeolha.BeltScroll
         private static void ResetStatics() => s_instance = null;
 
         private readonly Dictionary<Character, Entry> _entries = new Dictionary<Character, Entry>();
+        private readonly Dictionary<CameraFocusTarget, Entry> _objectEntries = new Dictionary<CameraFocusTarget, Entry>();
         private readonly List<Entry> _enemyBuffer = new List<Entry>();
         private readonly List<Character> _removalBuffer = new List<Character>();
+        private readonly List<CameraFocusTarget> _objectRemovalBuffer = new List<CameraFocusTarget>();
         private static readonly System.Comparison<Entry> s_beltOffsetComparer =
             (a, b) => Mathf.Abs(a.LocalX).CompareTo(Mathf.Abs(b.LocalX));
 
@@ -297,10 +330,16 @@ namespace Yeolha.BeltScroll
                     if (kv.Value.Kind == FocusKind.Enemy && kv.Value.Transform != null)
                         rig.FollowNode.RemoveTarget(kv.Value.Transform);
                 }
+                foreach (var kv in _objectEntries)
+                {
+                    if (kv.Value.Transform != null)
+                        rig.FollowNode.RemoveTarget(kv.Value.Transform);
+                }
                 if (rig.PlayerTarget != null)
                     rig.FollowNode.AddTarget(rig.PlayerTarget, 1f);
             }
             _entries.Clear();
+            _objectEntries.Clear();
             _playerEntry = null;
             _mainTarget = null;
             _focusActive = false;
@@ -320,6 +359,7 @@ namespace Yeolha.BeltScroll
 
             SyncPlayer();
             SyncEnemies();
+            SyncObjectTargets();
             UpdateFocusWatchdog();
             UpdateMainTarget();
             ComputeActiveSet();
@@ -455,6 +495,80 @@ namespace Yeolha.BeltScroll
             existing.BaseWeightMultiplier = focus != null ? focus.WeightMultiplier : 1f;
             existing.PendingRemoval = false;
             return existing;
+        }
+
+        /// <summary>
+        /// Character가 아닌 오브젝트를 전투 카메라의 추가 타겟으로 등록한다.
+        /// 오브젝트에 CameraFocusTarget 컴포넌트만 붙어 있으면 된다.
+        /// </summary>
+        public void AddFocusTarget(CameraFocusTarget target)
+        {
+            if (target == null) return;
+
+            if (!_objectEntries.TryGetValue(target, out Entry entry))
+            {
+                entry = new Entry
+                {
+                    Kind = FocusKind.Enemy,
+                    CurrentWeight = 0f,
+                    TargetWeight = 0f,
+                };
+                _objectEntries.Add(target, entry);
+            }
+
+            entry.Transform = target.ResolveTargetTransform(target.transform);
+            entry.Radius = target.Radius;
+            entry.BaseWeightMultiplier = target.WeightMultiplier;
+            entry.PendingRemoval = false;
+        }
+
+        /// <summary>GameObject에 붙은 CameraFocusTarget을 전투 카메라의 추가 타겟으로 등록한다.</summary>
+        public void AddFocusTarget(GameObject targetObject)
+        {
+            if (targetObject != null)
+                AddFocusTarget(targetObject.GetComponent<CameraFocusTarget>());
+        }
+
+        /// <summary>CameraFocusTarget로 등록한 비-Character 오브젝트를 카메라에서 제거한다.</summary>
+        public void RemoveFocusTarget(CameraFocusTarget target)
+        {
+            if (target == null) return;
+            if (_objectEntries.TryGetValue(target, out Entry entry) && entry.Transform != null && rig != null && rig.FollowNode != null)
+                rig.FollowNode.RemoveTarget(entry.Transform);
+            _objectEntries.Remove(target);
+        }
+
+        /// <summary>GameObject에 붙은 CameraFocusTarget을 전투 카메라에서 제거한다.</summary>
+        public void RemoveFocusTarget(GameObject targetObject)
+        {
+            if (targetObject != null)
+                RemoveFocusTarget(targetObject.GetComponent<CameraFocusTarget>());
+        }
+
+        private void SyncObjectTargets()
+        {
+            _objectRemovalBuffer.Clear();
+            foreach (var kv in _objectEntries)
+            {
+                CameraFocusTarget target = kv.Key;
+                Entry entry = kv.Value;
+                if (target == null)
+                {
+                    _objectRemovalBuffer.Add(target);
+                    continue;
+                }
+
+                entry.Transform = target.ResolveTargetTransform(target.transform);
+                entry.Radius = target.Radius;
+                entry.BaseWeightMultiplier = target.WeightMultiplier;
+            }
+
+            for (int i = 0; i < _objectRemovalBuffer.Count; i++)
+            {
+                CameraFocusTarget target = _objectRemovalBuffer[i];
+                _objectEntries.Remove(target);
+            }
+            _objectRemovalBuffer.Clear();
         }
 
         // ─────────────── Main Target ───────────────
@@ -669,6 +783,11 @@ namespace Yeolha.BeltScroll
                 kv.Value.WasActive = kv.Value.Active;
                 kv.Value.Active = false;
             }
+            foreach (var kv in _objectEntries)
+            {
+                kv.Value.WasActive = kv.Value.Active;
+                kv.Value.Active = false;
+            }
             if (_playerEntry == null || _playerEntry.Transform == null) return;
 
             Transform camTr = CameraTransform;
@@ -716,6 +835,19 @@ namespace Yeolha.BeltScroll
                 e.LocalX = BeltOffset(e.Transform.position);
 
                 // 영향 거리 필터 (hysteresis)
+                if (otherEnemyInfluenceDistance > 0f)
+                {
+                    float limit = e.WasActive ? otherEnemyInfluenceDistance * hyst : otherEnemyInfluenceDistance;
+                    if (Mathf.Abs(e.LocalX) > limit) continue;
+                }
+                _enemyBuffer.Add(e);
+            }
+            foreach (var kv in _objectEntries)
+            {
+                Entry e = kv.Value;
+                if (e.PendingRemoval || e.Transform == null) continue;
+                e.LocalX = BeltOffset(e.Transform.position);
+
                 if (otherEnemyInfluenceDistance > 0f)
                 {
                     float limit = e.WasActive ? otherEnemyInfluenceDistance * hyst : otherEnemyInfluenceDistance;
@@ -773,6 +905,22 @@ namespace Yeolha.BeltScroll
                         e.CurrentWeight, e.TargetWeight, ref e.WeightVelocity, duration, Mathf.Infinity, dt);
                 }
             }
+            foreach (var kv in _objectEntries)
+            {
+                Entry e = kv.Value;
+                e.TargetWeight = e.Active ? otherEnemyWeight * e.BaseWeightMultiplier : 0f;
+
+                if (duration <= 0f || dt <= 0f)
+                {
+                    e.CurrentWeight = e.TargetWeight;
+                    e.WeightVelocity = 0f;
+                }
+                else
+                {
+                    e.CurrentWeight = Mathf.SmoothDamp(
+                        e.CurrentWeight, e.TargetWeight, ref e.WeightVelocity, duration, Mathf.Infinity, dt);
+                }
+            }
         }
 
         private void PushToFollowNode()
@@ -788,6 +936,13 @@ namespace Yeolha.BeltScroll
                     follow.AddTarget(e.Transform, Mathf.Max(e.CurrentWeight, WeightEpsilon));
                     continue;
                 }
+                if (e.CurrentWeight > WeightEpsilon) follow.AddTarget(e.Transform, e.CurrentWeight);
+                else follow.RemoveTarget(e.Transform);
+            }
+            foreach (var kv in _objectEntries)
+            {
+                Entry e = kv.Value;
+                if (e.Transform == null) continue;
                 if (e.CurrentWeight > WeightEpsilon) follow.AddTarget(e.Transform, e.CurrentWeight);
                 else follow.RemoveTarget(e.Transform);
             }
@@ -810,6 +965,23 @@ namespace Yeolha.BeltScroll
                 _entries.Remove(_removalBuffer[i]);
             }
             _removalBuffer.Clear();
+
+            _objectRemovalBuffer.Clear();
+            foreach (var kv in _objectEntries)
+            {
+                Entry e = kv.Value;
+                if (kv.Key == null || e.Transform == null || (e.PendingRemoval && e.CurrentWeight <= WeightEpsilon))
+                    _objectRemovalBuffer.Add(kv.Key);
+            }
+            for (int i = 0; i < _objectRemovalBuffer.Count; i++)
+            {
+                CameraFocusTarget target = _objectRemovalBuffer[i];
+                if (target != null)
+                    RemoveFocusTarget(target);
+                else
+                    _objectEntries.Remove(target);
+            }
+            _objectRemovalBuffer.Clear();
         }
 
         // ─────────────── Framing Distance (구버전 ComputeDesiredDistance) ───────────────
@@ -835,6 +1007,20 @@ namespace Yeolha.BeltScroll
                 Entry e = kv.Value;
                 if (e.Transform == null || e.CurrentWeight <= WeightEpsilon) continue;
                 if (e.Kind == FocusKind.Enemy) anyEnemy = true;
+                Vector3 local = _invCamRot * e.Transform.position;
+                float x = local.x, y = local.y;
+                if (x - e.Radius < minX) minX = x - e.Radius;
+                if (x + e.Radius > maxX) maxX = x + e.Radius;
+                if (y - e.Radius < minY) minY = y - e.Radius;
+                if (y + e.Radius > maxY) maxY = y + e.Radius;
+                cx += x * e.CurrentWeight;
+                cy += y * e.CurrentWeight;
+                wSum += e.CurrentWeight;
+            }
+            foreach (var kv in _objectEntries)
+            {
+                Entry e = kv.Value;
+                if (e.Transform == null || e.CurrentWeight <= WeightEpsilon) continue;
                 Vector3 local = _invCamRot * e.Transform.position;
                 float x = local.x, y = local.y;
                 if (x - e.Radius < minX) minX = x - e.Radius;
@@ -954,6 +1140,11 @@ namespace Yeolha.BeltScroll
             foreach (var kv in _entries)
             {
                 if (kv.Value.Kind != FocusKind.Enemy) continue;
+                registered++;
+                if (kv.Value.Active && !kv.Value.PendingRemoval) active++;
+            }
+            foreach (var kv in _objectEntries)
+            {
                 registered++;
                 if (kv.Value.Active && !kv.Value.PendingRemoval) active++;
             }

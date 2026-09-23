@@ -31,5 +31,10 @@ namespace Yeolha.BeltScroll
         /// <summary>추적 기준 Transform. 오버라이드가 없으면 fallback(보통 Character.transform).</summary>
         public Transform ResolveTargetTransform(Transform fallback)
             => customTargetTransform != null ? customTargetTransform : fallback;
+
+        void Awake()
+        {
+            CombatCameraController.Ins.AddFocusTarget(this);
+        }
     }
 }

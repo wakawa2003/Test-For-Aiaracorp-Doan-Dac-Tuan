@@ -8,8 +8,6 @@ namespace MyGameNamespace
 {
     public class GameController : MonoBehaviour
     {
-        [SerializeField] private Transform focusPoint;
-        [SerializeField] public List<Transform> listFocusPoint;
         [SerializeField] private Transform posSpawnEnemy;
         [SerializeField] private Collider colliderSpawnEnemy;
         [SerializeField] private Transform EnemyPrefabs;
@@ -59,15 +57,6 @@ namespace MyGameNamespace
             });
         }
 
-        void Update()
-        {
-            Vector3 p = Vector3.zero;
-            foreach (var item in listFocusPoint)
-            {
-                p += item.position;
-            }
-            p = p / listFocusPoint.Count();
-            focusPoint.position = p;
-        }
+
     }
 }
