@@ -335,7 +335,10 @@ namespace MyGameNamespace
             public override async UniTask<StateTransitionInfo> Execute(CancellationToken token)
             {
                 Payload.animator.SetTrigger("Death");
+                Payload.GetComponentInParent<Collider>().enabled = false;
+                Payload.GetComponentInParent<Rigidbody>().isKinematic = true;
                 await Payload.deathFeedBack.PlayFeedbacksTask();
+
                 return await UniTask.FromResult(Transition.GoToExit());
             }
         }

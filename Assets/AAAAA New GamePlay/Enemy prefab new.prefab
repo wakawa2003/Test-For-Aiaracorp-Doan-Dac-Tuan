@@ -25149,14 +25149,14 @@ MonoBehaviour:
     range: 3
     rangeExplosion: 5
     forceToVictim: 1000
-    waitTime: 3
+    waitTime: 5
     IsAttacking: 0
     MMF_PlayerFeedBack: {fileID: 548200721503023672}
     newEnemyController: {fileID: 5168314214902074857}
   FarAttack:
     forceToVictim: 1000
     range: 10
-    waitTime: 3
+    waitTime: 5
     jumpPower: 2
     jumpSpeedAttackMultiple: 2
     jumpDuration: 1

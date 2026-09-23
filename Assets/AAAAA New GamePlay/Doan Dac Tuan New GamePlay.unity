@@ -25442,7 +25442,7 @@ MonoBehaviour:
   attackFeedBack: {fileID: 1172098951}
   deathFeedBack: {fileID: 0}
   Damage: 50
-  DamageForce: 550
+  DamageForce: 500
   Health: 100
   MaxHealth: 100
 --- !u!136 &1200068787
