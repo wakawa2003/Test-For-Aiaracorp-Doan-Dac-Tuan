@@ -28,7 +28,7 @@ namespace MyGameNamespace
         [SerializeField] private float attackTime = 1;
         [SerializeField] private float attackTimeFeedback = 0.2f;
         [SerializeField] private float attackDelay = 0.2f;
-
+        [SerializeField] private MMFeedbacks deathFeedBack;
         public int Health = 100;
         public int MaxHealth = 100;
         [SerializeField] private AttackingState.CloseAttack CloseAttack;
@@ -59,6 +59,17 @@ namespace MyGameNamespace
         {
             Gizmos.DrawWireSphere(transform.position, CloseAttack.rangeExplosion);
         }
+        public void Push(Vector3 pushForce)
+        {
+            rigidbody.AddForce(pushForce, ForceMode.Impulse);
+        }
+        public int TakeDamage(int damage)
+        {
+            Health -= damage;
+            Health = Mathf.Max(0, Health);
+            return damage;
+        }
+
         public bool IsDeath() => Health <= 0;
         public void ResetAllAnim()
         {
@@ -321,10 +332,11 @@ namespace MyGameNamespace
 
         public class DeathState : StateBase<NewEnemyController>
         {
-            public override UniTask<StateTransitionInfo> Execute(CancellationToken token)
+            public override async UniTask<StateTransitionInfo> Execute(CancellationToken token)
             {
                 Payload.animator.SetTrigger("Death");
-                return UniTask.FromResult(Transition.GoToExit());
+                await Payload.deathFeedBack.PlayFeedbacksTask();
+                return await UniTask.FromResult(Transition.GoToExit());
             }
         }
     }

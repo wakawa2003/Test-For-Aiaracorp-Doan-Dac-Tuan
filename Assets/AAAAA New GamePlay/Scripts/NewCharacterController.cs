@@ -1,8 +1,10 @@
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using Aiara;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using MoreMountains.Feedbacks;
 using R3;
 using Sirenix.OdinInspector;
 using UniState;
@@ -19,12 +21,17 @@ namespace MyGameNamespace
         [SerializeField] private Animator animator;
         [SerializeField] private Rigidbody rigidbody;
         [SerializeField] private int attackStage = 1;
+        [SerializeField] private float attackRange = 3;
         [SerializeField] private float attackTime = 1;
         [SerializeField] private float attackTimeFeedback = 0.2f;
         [SerializeField] private float lockDownDuration = 0.2f;
         [SerializeField] private GameObject fireEffect;
+        [SerializeField] private MMFeedbacks attackFeedBack;
+        [SerializeField] private MMFeedbacks deathFeedBack;
 
         bool isLockdownWithFire = false;
+        public int Damage = 10;
+        public float DamageForce = 1000;
         public int Health = 100;
         public int MaxHealth = 100;
         LockdownState lockdownState;
@@ -195,7 +202,21 @@ namespace MyGameNamespace
 
                 DOVirtual.DelayedCall(Payload.attackTimeFeedback, delegate
                         {
-                            FeedbackManager.PlayFeedbackAtWorld("Character Attack", Payload.transform.position, Payload.transform.rotation);
+                            Payload.attackFeedBack.PlayFeedbacks(Payload.attackFeedBack.transform.position);
+
+                            var hits = Physics.SphereCastAll(Payload.transform.position, Payload.attackRange,
+                                                             Payload.body.right, Payload.attackRange, ~0);
+                            foreach (var item in hits)
+                            {
+                                var enemy = item.transform.GetComponentInParent<NewEnemyController>();
+                                if (enemy != null)
+                                {
+                                    enemy.TakeDamage(Payload.Damage);
+                                    var dir = enemy.transform.position - Payload.body.position;
+                                    dir.y = 0;
+                                    enemy.Push(dir * Payload.DamageForce);
+                                }
+                            }
                         });
                 // Attack kéo dài 1 giây, nhưng chết là đổi state ngay.
                 float endTime = Time.time + Payload.attackTime;
@@ -213,10 +234,11 @@ namespace MyGameNamespace
 
         public class DeathState : StateBase<NewCharacterController>
         {
-            public override UniTask<StateTransitionInfo> Execute(CancellationToken token)
+            public override async UniTask<StateTransitionInfo> Execute(CancellationToken token)
             {
                 Payload.animator.SetTrigger("Death");
-                return UniTask.FromResult(Transition.GoToExit());
+                await Payload.deathFeedBack.PlayFeedbacksTask();
+                return await UniTask.FromResult(Transition.GoToExit());
             }
         }
     }
